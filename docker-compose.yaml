@@ -1,13 +1,19 @@
-# volumes:
+volumes:
+  passport_pals:
+    external: true
 services:
   fastapi:
     build:
-      context: sample_service
+      context: ./passport_pals
       dockerfile: Dockerfile.dev
+    environment:
+      DATABASE_URL: mongodb://passportpals:passportpals@mongo
+      DATABASE_NAME: passport_pals
+      WAIT_HOSTS: mongo:27017
     ports:
       - 8000:8000
     volumes:
-      - ./sample_service:/app
+      - ./passport_pals:/app
 
   ghi:
     image: node:lts-bullseye
@@ -22,4 +28,14 @@ services:
       NODE_ENV: development
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
-      REACT_APP_SAMPLE_SERVICE_API_HOST: ${REACT_APP_SAMPLE_SERVICE_API_HOST}
+      REACT_APP_PASSPORT_PALS_API_HOST: ${REACT_APP_SAMPLE_SERVICE_API_HOST}
+
+  mongo:
+    image: mongo:4
+    volumes:
+      - passport_pals:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: passportpals
+      MONGO_INITDB_ROOT_PASSWORD: passportpals
+    ports:
+      - 27017:27017
