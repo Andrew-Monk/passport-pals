@@ -1,15 +1,20 @@
 volumes:
   passport_pals:
     external: true
+  jwtdown-db-data:
+    external: true
 services:
   fastapi:
     build:
       context: ./passport_pals
       dockerfile: Dockerfile.dev
     environment:
+      SIGNING_KEY: D4KQq0RcL96pGFwqXfAom3ZFU3X3w6vw0R5HGfv3V6U
+      WAIT_HOSTS: mongo:27017
+      WAIT_BEFORE: 5
+      WAIT_TIMEOUT: 60
       DATABASE_URL: mongodb://passportpals:passportpals@mongo
       DATABASE_NAME: passport_pals
-      WAIT_HOSTS: mongo:27017
     ports:
       - 8000:8000
     volumes:
