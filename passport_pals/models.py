@@ -8,7 +8,17 @@ class AccountIn(BaseModel):
 
 class AccountOut(AccountIn):
     id: str
-    # password: str
 
-# class AccountOutWithPassword(AccountOut):
-#     hashed_password: str
+class EventIn(BaseModel):
+    event_title: str
+    location: str
+    picture: str
+    category: str
+    cost: int
+    language: str
+    payment_type: str
+    date: str
+    description: str
+
+class EventOut(EventIn):
+    id: str
