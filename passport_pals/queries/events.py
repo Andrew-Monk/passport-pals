@@ -13,3 +13,9 @@ class EventQueries(Queries):
         self.collection.insert_one(props)
         props["id"] = str(props["_id"])
         return EventOut(**props)
+
+    def get_all(self) -> List[EventOut]:
+        events = list(self.collection.find())
+        for event in events:
+            event["id"] = str(event["_id"])
+        return events
