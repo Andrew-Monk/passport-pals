@@ -26,3 +26,6 @@ class EventIn(BaseModel):
 
 class EventOut(EventIn):
     id: str
+
+class EventList(BaseModel):
+    events: List[EventOut]

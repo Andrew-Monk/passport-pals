@@ -14,6 +14,12 @@ class EventQueries(Queries):
         props["id"] = str(props["_id"])
         return EventOut(**props)
 
+    def get_all(self) -> List[EventOut]:
+        events = list(self.collection.find())
+        for event in events:
+            event["id"] = str(event["_id"])
+        return events
+
     def event_detail(self, event_id: str) -> EventOut:
         event = self.collection.find_one({"_id": ObjectId(event_id)})
         if not event:

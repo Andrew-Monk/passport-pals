@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, Response
-from models import EventIn, EventOut
+from models import EventIn, EventOut, EventList
 from queries.events import EventQueries
 
 router = APIRouter()
@@ -25,3 +25,10 @@ async def event_detail(
         response.status_code = 404
     else:
         return event
+
+
+@router.get("/events", response_model=EventList)
+async def list_events(
+    repo: EventQueries = Depends()
+):
+    return EventList(events = repo.get_all())
