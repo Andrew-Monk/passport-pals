@@ -1,5 +1,11 @@
 ## Journals
 
+## 5/18
+* Create event_detail with Andrew
+
+Built the event_detail endpoint and functionality.  We tested with the FastAPI doc and had to work through some server 500 errors.  starting to figure out how bson works.  and why we add prop[id]=str(prop[_id]), so it conforms with the expected output of the EventOut model.
+Used live share for the first time and enjoyed following along as Andrew drove
+
 
 ## 5/17
 * Create an event with the whole group
