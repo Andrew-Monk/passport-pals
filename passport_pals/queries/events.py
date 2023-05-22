@@ -2,6 +2,8 @@ from bson.objectid import ObjectId
 from typing import List
 from .client import Queries
 from models import EventIn, EventOut
+from pymongo import ReturnDocument
+import json
 
 
 class EventQueries(Queries):
@@ -26,3 +28,15 @@ class EventQueries(Queries):
             return None
         event["id"] = str(event["_id"])
         return EventOut(**event)
+
+    def update_event(self, id: str, event: EventIn) -> EventOut:
+        props = event.dict()
+        self.collection.find_one_and_update(
+            {"_id": ObjectId(id)},
+            {"$set": props},
+            return_document=ReturnDocument.AFTER,
+        )
+        return EventOut(**props, id=id)
+
+    def delete_event(self, id: str) -> bool:
+        return self.collection.delete_one({"_id": ObjectId(id)})
