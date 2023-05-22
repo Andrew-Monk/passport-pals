@@ -27,5 +27,6 @@ class EventIn(BaseModel):
 class EventOut(EventIn):
     id: str
 
-# class AccountOutWithPassword(AccountOut):
-#     hashed_password: str
+
+class EventList(BaseModel):
+    events: List[EventOut]
