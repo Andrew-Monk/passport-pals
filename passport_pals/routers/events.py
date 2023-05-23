@@ -32,26 +32,3 @@ async def list_events(
     repo: EventQueries = Depends()
 ):
     return EventList(events = repo.get_all())
-
-
-@router.put("/api/events/{event_id}", response_model=EventOut)
-def update_event(
-    event_id: str,
-    event_in: EventIn,
-    response: Response,
-    queries: EventQueries = Depends(),
-):
-    record = queries.update_event(event_id, event_in)
-    if record is None:
-        response.status_code = 404
-    else:
-        return record
-
-@router.delete("/api/events/{event_id}", response_model=bool)
-async def delete_event(
-    event_id: str,
-    repo: EventQueries = Depends(),
-    # account: dict = Depends(?????),
-):
-    repo.delete_event(id=event_id)
-    return True
