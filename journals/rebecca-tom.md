@@ -1,3 +1,7 @@
+## Tuesday, May 23rd
+
+We wrote our delete endpoint and finally started working on the frontend. We tried to figure out how to install react-router-dom and ended up in a whole mess.
+
 ## Monday, May 22nd
 
 We struggled a lot with the update endpoint, and at the end of the day, a SEIR helped us figure it out. We kept getting errors all day before that. We are the only ones using Mongo in the class as far as I know, or at least one of the very few.
