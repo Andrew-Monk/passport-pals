@@ -12,7 +12,7 @@ class EventQueries(Queries):
 
     def create(self, event: EventIn) -> EventOut:
         props = event.dict()
-        self.collection.insert_one(props)
+        self.collection.insert_one(props) #set to variable??
         props["id"] = str(props["_id"])
         return EventOut(**props)
 
@@ -31,12 +31,13 @@ class EventQueries(Queries):
 
     def update_event(self, id: str, event: EventIn) -> EventOut:
         props = event.dict()
-        self.collection.find_one_and_update(
+        inserted_event = self.collection.find_one_and_update(
             {"_id": ObjectId(id)},
             {"$set": props},
             return_document=ReturnDocument.AFTER,
         )
-        return EventOut(**props, id=id)
+        print("inserted event", inserted_event)
+        return EventOut(**inserted_event, id=id)
 
     def delete_event(self, id: str) -> bool:
         return self.collection.delete_one({"_id": ObjectId(id)})

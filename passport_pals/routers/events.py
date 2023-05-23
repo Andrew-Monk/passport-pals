@@ -46,3 +46,12 @@ def update_event(
         response.status_code = 404
     else:
         return record
+
+@router.delete("/api/events/{event_id}", response_model=bool)
+async def delete_event(
+    event_id: str,
+    repo: EventQueries = Depends(),
+    # account: dict = Depends(?????),
+):
+    repo.delete_event(id=event_id)
+    return True
