@@ -27,7 +27,7 @@ async def event_detail(
         return event
 
 
-@router.get("/events", response_model=EventList)
+@router.get("/api/events", response_model=EventList)
 async def list_events(
     repo: EventQueries = Depends()
 ):

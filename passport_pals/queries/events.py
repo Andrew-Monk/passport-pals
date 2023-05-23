@@ -2,6 +2,7 @@ from bson.objectid import ObjectId
 from typing import List
 from .client import Queries
 from models import EventIn, EventOut
+import json
 
 
 class EventQueries(Queries):
@@ -26,4 +27,5 @@ class EventQueries(Queries):
             return None
         event["id"] = str(event["_id"])
         return EventOut(**event)
+
 
