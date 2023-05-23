@@ -3,7 +3,6 @@ from typing import List
 from .client import Queries
 from models import EventIn, EventOut
 from pymongo import ReturnDocument
-import json
 
 
 class EventQueries(Queries):
