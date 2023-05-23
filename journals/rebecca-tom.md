@@ -1,3 +1,7 @@
+## Monday, May 22nd
+
+We struggled a lot with the update endpoint, and at the end of the day, a SEIR helped us figure it out. We kept getting errors all day before that. We are the only ones using Mongo in the class as far as I know, or at least one of the very few.
+
 ## Thursday, May 18th
 
 We split up in groups to work on endpoints. Each pair got two endpoints to work respectively. I'm still confused by the code but we managed to make it work by cobbling together screenshots from instructors...
