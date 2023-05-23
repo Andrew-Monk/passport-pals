@@ -1,6 +1,25 @@
 ## Journals
 
 
+## 5/23
+* Create delete_event with whole team, updated update_event
+We changed our update_event function to return the actual changed document instead of the changed props being returned.
+Delete was pretty simple, just made sure the id=event_id
+
+
+
+## 5/21
+* Created update_event with whole team
+Took most of the day figuring out how to make the update function work.  Ended up using the return document to get our updated data back. And props=event.dict() to get request body and turn it into a dictionary.  Learned that $set places new info in and updates a single instance and replaces entire dictionary.  We were stuck on having it update, but resetting all the other fields and receiving a 500 error in swagger.  We were able to verify that the user is not able to login without valid username and password.
+
+
+## 5/18
+* Create event_detail with Andrew
+
+Built the event_detail endpoint and functionality.  We tested with the FastAPI doc and had to work through some server 500 errors.  starting to figure out how bson works.  and why we add prop[id]=str(prop[_id]), so it conforms with the expected output of the EventOut model.
+Used live share for the first time and enjoyed following along as Andrew drove
+
+
 ## 5/17
 * Create an event with the whole group
 
