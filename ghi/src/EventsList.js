@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-function MainPage() {
+function EventsList() {
     const [ events, setEvents ] = useState([])
 
     async function fetchEvents() {
@@ -50,4 +50,4 @@ function MainPage() {
     );
 }
 
-export default MainPage;
+export default EventsList;
