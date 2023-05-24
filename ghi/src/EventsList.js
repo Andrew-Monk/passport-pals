@@ -1,30 +1,23 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-function MainPage() {
-    const [events, setEvents] = useState([])
-    const [randomEvents, setRandomEvents] = useState([]);
-
-    useEffect(() => {
-        fetchEvents();
-    }, []);
-
+function EventsList() {
+    const [ events, setEvents ] = useState([])
 
     async function fetchEvents() {
         const eventsUrl = "http://localhost:8000/api/events/";
         const response = await fetch(eventsUrl);
+        console.log(response)
         if (response.ok) {
             const responseData = await response.json();
             const eventsData = responseData.events;
             setEvents(eventsData);
-            setRandomEvents(getRandomEvents(eventsData, 3));
         }
-    }
+    };
 
-  const getRandomEvents = (eventList, count) => {
-    const shuffled = eventList.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-  };
+    useEffect(() => {
+        fetchEvents();
+    }, []);
 
 
     return (
@@ -40,19 +33,21 @@ function MainPage() {
             </tr>
           </thead>
           <tbody>
-            {randomEvents.map(event => (
+            {events.map(event => {
+                return (
                   <tr key={event.id}>
                     <td>
-                      <Link to={`/event/${event.id}`}>{event.event_title}</Link>
+                    <Link to={`/event/${event.id}`}>{event.event_title}</Link>
                     </td>
                     <td>{event.location}</td>
                     <td>{event.picture}</td>
                   </tr>
-            ))}
+                );
+            })}
           </tbody>
         </table>
       </div>
     );
 }
 
-export default MainPage;
+export default EventsList;
