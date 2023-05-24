@@ -1,3 +1,51 @@
+
+
+
+## May 24, 2023
+
+Today, I worked on:
+
+* Adding the 
+
+
+
+
+## May 23, 2023
+
+Today, I worked on:
+
+* Adding the "delete event" codes, and started
+front-end
+
+Our group added the delete event code before lunch and
+got it to work pretty easily. After that we decided
+we were at the point where we wanted to start working
+on the front end to see how our code was working and
+if we needed to eventually change it somehow or highlight
+if we were missing anything.
+
+Front-end stuff started out slow, but eventually we were
+able to pull a list of events for the home page and also
+set up a nav bar. We will focus on beautification later.
+
+## May 22, 2023
+
+Today, I worked on:
+
+* Adding the "update event" codes
+
+Our group started working on the update event function
+thinking it would be easy but it was not. We tried to
+make our own code because we had nothing to reference
+but it was weird because we would get it to update but
+simultaneously give us an error.
+
+Eventually we had to get help from a SEIR who also couldnt
+figure out how to fix our code so instead gave us a good
+reference code that we could use to guide us. After
+that the code worked fine!
+
+
 ## May 18, 2023
 
 Today, I worked on:

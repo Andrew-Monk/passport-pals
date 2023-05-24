@@ -1,10 +1,14 @@
 ## Journals
 
 
+
 ## 5/23
-* Create delete_event with whole team, updated update_event
+* Create delete_event with whole team, updated update_event, React home page, react nav bar
 We changed our update_event function to return the actual changed document instead of the changed props being returned.
 Delete was pretty simple, just made sure the id=event_id
+Created react home page and the navbar - very basic for now, but functionality is there and was able to pull data from our backend successfully, so that's fun!
+Had to add react-router-dom to our dependencies by doing an npm install, realized that package.json is the set up for our front end, so we had to rerun our images and spin up our container to see the changes
+Also had a fun moment of restoring to a previous commit
 
 
 
