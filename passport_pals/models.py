@@ -1,16 +1,5 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Optional
 from typing import List
-
-
-class AccountIn(BaseModel):
-    email: str
-    password: str
-    full_name: str
-
-
-class AccountOut(AccountIn):
-    id: str
-
 
 class EventIn(BaseModel):
     event_title: str
@@ -30,3 +19,17 @@ class EventOut(EventIn):
 
 class EventList(BaseModel):
     events: List[EventOut]
+
+class AccountIn(BaseModel):
+    email: str
+    password: str
+    full_name: str
+
+class AccountOut(AccountIn):
+    id: str
+
+class Attending(BaseModel):
+    email: str
+    group_size: int
+    country: str
+    event: EventOut.id
