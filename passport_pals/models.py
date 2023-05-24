@@ -1,5 +1,6 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
+
 
 
 class AccountIn(BaseModel):
@@ -20,7 +21,7 @@ class EventIn(BaseModel):
     cost: int
     language: str
     payment_type: str
-    date: str
+    date: Optional[str]
     description: str
 
 
