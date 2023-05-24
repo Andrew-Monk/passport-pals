@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import MainPage from "./MainPage";
 import Nav from "./Nav";
-import EventDetails from "./EventDetails";
+import EventsList from "./EventsList";
 
 function App() {
   return (
