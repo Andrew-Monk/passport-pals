@@ -21,6 +21,9 @@ function Nav(){
                     <li>
                         <NavLink className="navbar" to="/logout">Logout</NavLink>
                     </li>
+                    <li>
+                        <NavLink className="navbar" to="/events/{event_id}">Event Details</NavLink>
+                    </li>
                 </ul>
             </div>
         </div>

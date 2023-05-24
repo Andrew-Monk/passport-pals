@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function MainPage() {
     const [ events, setEvents ] = useState([])
@@ -35,7 +36,10 @@ function MainPage() {
             {events.map(event => {
                 return (
                   <tr key={event.id}>
-                    <td>{event.event_title}</td>
+                    <td>
+                    {/* {event.event_title}</td> */}
+                    <Link to={`/event/${event.id}`}>{event.event_title}</Link>
+                    </td>
                     <td>{event.location}</td>
                     <td>{event.picture}</td>
                   </tr>
