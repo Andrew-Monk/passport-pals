@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import MainPage from "./MainPage";
 import Nav from "./Nav";
+import EventDetails from "./EventDetails";
+import EventsList from "./EventsList";
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/event/:eventId" element={<EventDetails />} />
+          <Route path="/events/list" element={<EventsList />} />
         </Routes>
       </BrowserRouter>
     </div>
