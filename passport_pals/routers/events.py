@@ -4,7 +4,7 @@ from queries.events import EventQueries
 
 router = APIRouter()
 
-@router.post("/api/events", response_model=EventOut)
+@router.post("/api/events/create", response_model=EventOut)
 async def create_event(
     event: EventIn,
     repo: EventQueries = Depends()
