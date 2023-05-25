@@ -1,9 +1,11 @@
-from pydantic import BaseModel, Optional
-from typing import List
+from pydantic import BaseModel
+from typing import List, Optional
 
 class EventIn(BaseModel):
     event_title: str
     location: str
+    expected_guests: Optional[list]
+    # contains all attendees ids ^^
     picture: str
     category: str
     cost: int
@@ -22,14 +24,13 @@ class EventList(BaseModel):
 
 class AccountIn(BaseModel):
     email: str
+    language: str
+    country: str
     password: str
     full_name: str
+    attending: Optional[list]
+    hosting: Optional[list]
+    # can put event id's in these lists ^^
 
 class AccountOut(AccountIn):
     id: str
-
-class Attending(BaseModel):
-    email: str
-    group_size: int
-    country: str
-    event: EventOut.id
