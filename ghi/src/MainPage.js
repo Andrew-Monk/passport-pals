@@ -41,7 +41,7 @@ function MainPage() {
           {randomEvents.map((event) => (
             <tr key={event.id}>
               <td>
-                <Link to={`/event/${event.id}`}>{event.event_title}</Link>
+                <Link to={`/events/${event.id}`}>{event.event_title}</Link>
               </td>
               <td>{event.location}</td>
               <td>{event.picture}</td>
