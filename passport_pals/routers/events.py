@@ -14,7 +14,7 @@ async def create_event(
     return event
 
 
-@router.get("/api/events/{event_id}", response_model=EventOut)
+@router.get("/api/events/{event_id}/", response_model=EventOut)
 async def event_detail(
     event_id: str,
     response: Response,
@@ -54,3 +54,5 @@ async def delete_event(
 ):
     repo.delete_event(id=event_id)
     return True
+
+# make a new router to add event id, remove event id, add hosted event id, remove hosted event id, add attendee to event, remove attendee from event
