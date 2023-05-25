@@ -1,6 +1,18 @@
 ## Journals
 
 
+## 5/25
+* creating thr front end for event detail
+
+
+
+## 5/24
+* creating the front end for event detail
+
+Had a fun moment realizing we omitted code from a previous push, so got that back up and running
+Partnered with Rebecca to work on the event detail page.  We are returning the data that we want for each event.  We added the form to attend an event.  We need to work out the logic so if someone signs up for an event or hosts an event that it appears on the user page specific to that user.  To be continued tomorrow.
+
+
 
 ## 5/23
 * Create delete_event with whole team, updated update_event, React home page, react nav bar
