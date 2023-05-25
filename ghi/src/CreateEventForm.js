@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 function CreateEventForm () {
 	const [title, setTitle] = useState('')
 	const [location, setLocation] = useState('')
-  // const [date, setDate] = useState('')
-	// const [time, setTime] = useState('')
+  const [date, setDate] = useState('')
+	const [time, setTime] = useState('')
 	const [picture, setPicture] = useState('')
 	const [category, setCategory] = useState('')
 	const [cost, setCost] = useState('')
@@ -35,15 +35,15 @@ function CreateEventForm () {
 			setLocation(value)
 		}
 
-		// const handleDateChange = (event) => {
-		// 	const value = event.target.value
-		// 	setDate(value)
-		// }
+		const handleDateChange = (event) => {
+			const value = event.target.value
+			setDate(value)
+		}
 
-		// const handleTimeChange = (event) => {
-		// 	const value = event.target.value
-		// 	setTime(value)
-		// }
+		const handleTimeChange = (event) => {
+			const value = event.target.value
+			setTime(value)
+		}
 
 		const handlePictureChange = (event) => {
 			const value = event.target.value
@@ -84,7 +84,7 @@ function CreateEventForm () {
 
 			data.event_title = title
 			data.location = location
-			// data.date_time = date + " " + time
+			data.date = date + " " + time
 			data.picture = picture
 			data.category = category
       data.cost = cost
@@ -106,8 +106,8 @@ function CreateEventForm () {
     		const newEvent = await response.json();
 				setTitle('')
 				setLocation('')
-				// setDate('')
-				// setTime('')
+				setDate('')
+				setTime('')
 				setPicture('')
 				setCategory('')
         setCost('')
@@ -154,7 +154,7 @@ function CreateEventForm () {
                   />
                   <label htmlFor="location">Location</label>
                 </div>
-                {/* <div className="form-floating mb-0">
+                <div className="form-floating mb-0">
                   <input
                     value={date}
                     onChange={handleDateChange}
@@ -179,7 +179,7 @@ function CreateEventForm () {
                     className="form-control"
                   />
                   <label htmlFor="time">Time</label>
-                </div> */}
+                </div>
                 <div className="form-floating mb-3">
                   <input
                     value={picture}

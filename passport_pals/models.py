@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
+from datetime import datetime
 
 
 class AccountIn(BaseModel):
@@ -20,7 +21,7 @@ class EventIn(BaseModel):
     cost: int
     language: str
     payment_type: str
-    date: Optional[str]
+    date: datetime
     description: str
 
 
