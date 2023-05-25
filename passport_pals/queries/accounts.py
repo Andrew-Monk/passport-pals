@@ -29,3 +29,7 @@ class AccountQueries(Queries):
             raise DuplicateAccountError()
         props["id"] = str(props["_id"])
         return AccountOut(**props)
+
+
+
+# account id, event id, hsoting/attending
