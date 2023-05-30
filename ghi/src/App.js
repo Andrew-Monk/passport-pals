@@ -9,7 +9,6 @@ import CreateEventForm from "./CreateEventForm";
 import Login from "./Login";
 
 function App() {
-  // const baseUrl = "http://localhost:8000";
   return (
     <div>
       <BrowserRouter>
