@@ -3,14 +3,14 @@ from typing import List, Optional
 from datetime import datetime
 
 
-class AccountIn(BaseModel):
-    email: str
-    password: str
-    full_name: str
+# class AccountIn(BaseModel):
+#     email: str
+#     password: str
+#     full_name: str
 
 
-class AccountOut(AccountIn):
-    id: str
+# class AccountOut(AccountIn):
+#     id: str
 
 
 class EventIn(BaseModel):
@@ -36,10 +36,10 @@ class EventList(BaseModel):
 
 class AccountIn(BaseModel):
     email: str
-    language: str
-    country: str
+    language: str | None
+    country: str | None
     password: str
-    full_name: str
+    full_name: str | None
     attending: Optional[list]
     hosting: Optional[list]
     # can put event id's in these lists ^^
