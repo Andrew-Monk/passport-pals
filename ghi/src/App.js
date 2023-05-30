@@ -7,6 +7,7 @@ import Nav from "./Nav";
 import EventsList from "./EventsList";
 import CreateEventForm from "./CreateEventForm";
 import Login from "./Login";
+import UserSignup from "./UserSignup";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/events/list" element={<EventsList />} />
             <Route path="/events/create" element={<CreateEventForm />} />
             <Route path="/login/" element={<Login />} />
+            <Route path="/usersignup/" element={<UserSignup />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
