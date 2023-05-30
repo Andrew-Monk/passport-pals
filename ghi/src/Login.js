@@ -1,10 +1,12 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, token } = useToken();
+  const navigate = useNavigate();
 
   const username = email;
 
@@ -12,6 +14,7 @@ function Login() {
     e.preventDefault();
     login(username, password);
     e.target.reset();
+    navigate("/");
   };
 
   return (
