@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 function EventDetail() {
   const { event_id } = useParams();
   const [eventDetails, setEventDetails] = useState([]);
-  //   const [attending, setAttending] = useState([]);
 
   async function fetchEvent() {
     const eventUrl = `http://localhost:8000/api/events/${event_id}/`;
@@ -16,33 +15,6 @@ function EventDetail() {
       setEventDetails(eventData);
     }
   }
-
-  //    async function fetchEvent() {
-  //      const eventUrl = `http://localhost:8000/api/accounts/${event_id}/`;
-  //      const response = await fetch(eventUrl);
-  //      console.log(response);
-  //      if (response.ok) {
-  //        const responseData = await response.json();
-  //        const eventData = responseData;
-  //        setEventDetails(eventData);
-  //      }
-  //    }
-
-  // ^^we need to be able to access current logged in user's id via fetch request to token ^^. it's generated when u click login
-  // that token has info associated with account (id, username, attending, etc.). finish authorization first. check in with instructor before implementing this
-
-  //   const handleSubmit = async (event) => {
-  //     event.preventDefault();
-  //     setAttending(event_id);
-  //     const data = { attending };
-  //     const accountUrl = `http://localhost:8000/api/accounts/${id}/`;
-  //     const fetchConfig = {
-  //       method: "put",
-  //       body: JSON.stringify(data),
-  //     };
-  //   };
-
-  // need to fix this handle submit thing eventually ^^
 
   useEffect(() => {
     fetchEvent();

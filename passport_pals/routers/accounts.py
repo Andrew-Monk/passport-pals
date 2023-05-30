@@ -10,6 +10,7 @@ from fastapi import (
 from jwtdown_fastapi.authentication import Token
 from authenticator import authenticator
 from pydantic import BaseModel
+from bson.objectid import ObjectId
 
 from queries.accounts import (
     AccountIn,
@@ -53,3 +54,24 @@ async def create_account(
     form = AccountForm(username=info.email, password=info.password)
     token = await authenticator.login(response, request, form, accounts)
     return AccountToken(account=account, **token.dict())
+
+@router.get("/api/accounts/{account_id}", response_model=AccountOut)
+async def get_account(
+    email: str,
+    repo: AccountQueries = Depends(),
+):
+    account = repo.get(email)
+    return account
+
+@router.get("/token", response_model=AccountToken | None)
+async def get_token(
+    request: Request,
+    account: AccountOut = Depends(authenticator.try_get_current_account_data),
+) -> AccountToken | None:
+    if authenticator.cookie_name in request.cookies:
+        token_data = {
+            "access_token": request.cookies[authenticator.cookie_name],
+            "type": "Bearer",
+            "account": account,
+        }
+        return AccountToken(**token_data)
