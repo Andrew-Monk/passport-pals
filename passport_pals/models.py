@@ -1,26 +1,29 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
+from datetime import datetime
 
 
-class AccountIn(BaseModel):
-    email: str
-    password: str
-    full_name: str
+# class AccountIn(BaseModel):
+#     email: str
+#     password: str
+#     full_name: str
 
 
-class AccountOut(AccountIn):
-    id: str
+# class AccountOut(AccountIn):
+#     id: str
 
 
 class EventIn(BaseModel):
     event_title: str
     location: str
+    expected_guests: Optional[list]
+    # contains all attendees ids ^^
     picture: str
     category: str
     cost: int
     language: str
     payment_type: str
-    date: str
+    date: datetime
     description: str
 
 
@@ -30,3 +33,16 @@ class EventOut(EventIn):
 
 class EventList(BaseModel):
     events: List[EventOut]
+
+class AccountIn(BaseModel):
+    email: str
+    language: str | None
+    country: str | None
+    password: str
+    full_name: str | None
+    attending: Optional[list]
+    hosting: Optional[list]
+    # can put event id's in these lists ^^
+
+class AccountOut(AccountIn):
+    id: str
