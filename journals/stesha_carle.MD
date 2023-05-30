@@ -1,9 +1,21 @@
 ## Journals
 
 
-## 5/25
-* creating thr front end for event detail
+## 5/30
+* created the login page, created the sign up page
 
+Finally a successful login page!  And log out page!  Worked with the whole group to debug the login and create the logic for the logic button.  An aha moment in recognizing the use of our paths and making sure they were consistent through our code
+Created a sign up page with the whole team, redirects to the login page using the navigate method
+
+## 5/26
+* creating the login page
+
+Long day of troubleshooting front end choices and how to move forward with creating our front end page.  Choose to use jwtdown-for-react, working through some errors
+
+## 5/25
+* creating the front end for event detail
+
+Continued to work with Rebecca and were able to return details for an individual event.  Started working on the login page
 
 
 ## 5/24
