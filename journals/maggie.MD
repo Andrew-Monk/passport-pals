@@ -1,7 +1,5 @@
 
-
-
-## May 24, 2023
+## May 25, 2023
 
 Today, I worked on:
 
@@ -9,6 +7,22 @@ Today, I worked on:
 
 
 
+
+## May 24, 2023
+
+Today, I worked on:
+
+* Adding the List of Events page, and Create an Event form
+
+We split in to pairs to divide and conquer. My partner and I
+were able to get the List of Events page done pretty easily
+as it was similar to the code we did yesterday. We ran into
+issues for the Create an Event form and after a lot of
+troubleshooting we decided deleting and rebuilding containers
+might be best.
+
+We were also able to add a feature to the main page that shows
+only 3 random events.
 
 ## May 23, 2023
 
