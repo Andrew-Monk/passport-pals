@@ -34,6 +34,11 @@ function Nav() {
                 List of Events
               </NavLink>
             </li>
+            <li>
+              <NavLink className="navbar" to="/usersignup">
+                Sign Up
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
