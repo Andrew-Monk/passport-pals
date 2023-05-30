@@ -30,6 +30,11 @@ class AccountQueries(Queries):
         props["id"] = str(props["_id"])
         return AccountOut(**props)
 
-
+    def get_user_by_id(self, id: str) -> AccountOut:
+        props = self.collection.find_one({"_id": id})
+        if not props:
+            return None
+        props["id"] = str(props["_id"])
+        return AccountOut(**props)
 
 # account id, event id, hsoting/attending
