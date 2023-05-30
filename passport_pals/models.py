@@ -23,7 +23,7 @@ class EventIn(BaseModel):
     cost: int
     language: str
     payment_type: str
-    date: datetime
+    date: Optional[datetime]
     description: str
 
 
