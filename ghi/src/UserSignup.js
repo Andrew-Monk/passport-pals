@@ -8,29 +8,32 @@ const UserSignup = () => {
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [language, setLanguage] = useState("");
-  const { register } = useToken();
+  const { register, login } = useToken();
   const navigate = useNavigate();
+  const username = email
+
 
   const handleRegistration = (e) => {
     e.preventDefault();
     const accountData = {
       full_name: fullName,
       password: password,
-      email: email,
+      email: username,
       country: country,
       language: language,
     };
     register(
       accountData,
-      `${process.env.REACT_APP_USER_SERVICE_API_HOST}/api/user`
+      `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/accounts`
     );
     e.target.reset();
-    navigate("/login");
+    login(username, password);
+    navigate("/");
   };
 
   return (
     <div className="card text-bg-light mb-3">
-      <h5 className="card-header">Signup</h5>
+      <h5 className="card-header">Sign Up</h5>
       <div className="card-body">
         <form onSubmit={(e) => handleRegistration(e)}>
           <div className="mb-3">

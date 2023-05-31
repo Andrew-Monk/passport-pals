@@ -27,9 +27,9 @@ function MainPage() {
     <>
       <div>
         <h1>Passport Pals</h1>
+        <h2>Events</h2>
         <table>
           <thead>
-            <h2>Events</h2>
             <tr>
               <th>Title</th>
               <th>Location</th>

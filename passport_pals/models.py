@@ -14,6 +14,7 @@ class EventIn(BaseModel):
     payment_type: str
     date: datetime
     description: str
+    #host: str
 
 
 class EventOut(EventIn):
