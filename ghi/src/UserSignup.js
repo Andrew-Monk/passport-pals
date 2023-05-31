@@ -22,10 +22,10 @@ const UserSignup = () => {
     };
     register(
       accountData,
-      `${process.env.REACT_APP_USER_SERVICE_API_HOST}/api/user`
+      `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/accounts`
     );
     e.target.reset();
-    navigate("/login");
+    navigate("/");
   };
 
   return (
