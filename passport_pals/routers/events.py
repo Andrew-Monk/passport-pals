@@ -1,17 +1,20 @@
 from fastapi import APIRouter, Depends, HTTPException, Response
 from models import EventIn, EventOut, EventList
 from queries.events import EventQueries
+#from authenticator import get_account_data
 
 router = APIRouter()
 
 @router.post("/api/events/create", response_model=EventOut)
 async def create_event(
     event: EventIn,
-    repo: EventQueries = Depends()
+    repo: EventQueries = Depends(),
+    #account: AccountOut = Depends()
+    ):
     # need to add user validation here, see books example
-):
-    event = repo.create(event)
-    return event
+    event.host = account.email
+    created_event = repo.create(event)
+    return created_event
 
 
 @router.get("/api/events/{event_id}/", response_model=EventOut)

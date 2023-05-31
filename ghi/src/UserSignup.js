@@ -25,7 +25,7 @@ const UserSignup = () => {
       `${process.env.REACT_APP_USER_SERVICE_API_HOST}/api/user`
     );
     e.target.reset();
-    navigate("/login");
+    navigate("/");
   };
 
   return (
