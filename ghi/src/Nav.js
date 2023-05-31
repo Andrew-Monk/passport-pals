@@ -23,7 +23,7 @@ function Nav() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="navbar" to="/account">
+                  <NavLink className="navbar" to="/myaccount">
                     Account
                   </NavLink>
                 </li>
