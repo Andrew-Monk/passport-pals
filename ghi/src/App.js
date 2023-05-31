@@ -8,6 +8,7 @@ import EventsList from "./EventsList";
 import CreateEventForm from "./CreateEventForm";
 import Login from "./Login";
 import UserSignup from "./UserSignup";
+import AccountDetail from "./AccountDetail";
 
 function App() {
   // const baseUrl = "http://localhost:8000";
@@ -23,6 +24,7 @@ function App() {
             <Route path="/events/create" element={<CreateEventForm />} />
             <Route path="/login/" element={<Login />} />
             <Route path="/usersignup/" element={<UserSignup />} />
+            <Route path="/myaccount/" element={<AccountDetail />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>

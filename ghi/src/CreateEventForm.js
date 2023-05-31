@@ -124,7 +124,7 @@ function CreateEventForm () {
     return (
       <div className="row">
         <div className="offset-3 col-6">
-          <div className="shadow p-4 mt-4 text-light">
+          <div className="shadow p-4 mt-4 text-dark">
             <h1>Host an Event!</h1>
             <form onSubmit={handleSubmit}>
               <div className="form-floating mb-4">
