@@ -12,6 +12,7 @@ function EventDetail() {
     if (response.ok) {
       const responseData = await response.json();
       const eventData = responseData;
+      console.log(eventData)
       setEventDetails(eventData);
     }
   }

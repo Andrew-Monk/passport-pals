@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from .client import Queries
 from models import AccountIn, AccountOut
 from pymongo.errors import DuplicateKeyError
+from pymongo import ReturnDocument
+from bson.objectid import ObjectId
 
 
 class DuplicateAccountError(ValueError):
@@ -22,6 +24,8 @@ class AccountQueries(Queries):
     def create(self, info: AccountIn, hashed_password: str) -> AccountOut:
         props = info.dict()
         props["password"] = hashed_password
+        props["attending"] = []
+        props["hosting"] = []
 
         try:
             self.collection.insert_one(props)
@@ -36,5 +40,15 @@ class AccountQueries(Queries):
             return None
         props["id"] = str(props["_id"])
         return AccountOut(**props)
+
+    def update_one(self, id: str, account: AccountIn) -> AccountOut:
+        props = account.dict()
+        updated_account = self.collection.find_one_and_update(
+            {"_id": ObjectId(id)},
+            {"$set": props},
+            return_document=ReturnDocument.AFTER,
+        )
+        return AccountOut(**updated_account, id=id)
+
 
 # account id, event id, hsoting/attending
