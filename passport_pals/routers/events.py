@@ -1,18 +1,42 @@
-from fastapi import APIRouter, Depends, HTTPException, Response
+from fastapi import APIRouter, Depends, HTTPException, Response, status
 from models import EventIn, EventOut, EventList
 from queries.events import EventQueries
-#from authenticator import get_account_data
+from authenticator import authenticator
+from bson import ObjectId
 
 router = APIRouter()
+
+
 
 @router.post("/api/events/create", response_model=EventOut)
 async def create_event(
     event: EventIn,
     repo: EventQueries = Depends(),
-    #account: AccountOut = Depends()
-    ):
-    # need to add user validation here, see books example
-    event.host = account.email
+    account_data: dict = Depends(authenticator.try_get_current_account_data),
+):
+    print("account data", account_data)
+
+    try:
+        if account_data is None or "id" not in account_data:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="User authentication required",
+            )
+        if not event:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Event not found",
+            )
+        account_data["hosting"].append(EventOut.id)
+        print("updated account data", account_data)
+        repo.collection.update_one(
+            {"_id": ObjectId(id)}, {"$set": account_data}
+            )
+
+    except Exception as e:
+        print(str(e))
+        raise HTTPException(status_code=500, detail="Internal server error")
+
     created_event = repo.create(event)
     return created_event
 
