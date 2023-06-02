@@ -16,6 +16,7 @@ async def create_event(
     account_data: dict = Depends(authenticator.try_get_current_account_data),
     account_repo: AccountQueries = Depends(),
 ):
+    print("event", event)
     created_event = repo.create(event)
     try:
         if account_data is None or "id" not in account_data:
@@ -42,6 +43,7 @@ async def create_event(
     except Exception as e:
         print("e:", e)
         raise HTTPException(status_code=500, detail="Internal server error")
+
     return created_event
 
 
