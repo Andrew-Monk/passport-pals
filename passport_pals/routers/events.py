@@ -33,7 +33,6 @@ async def create_event(
     props = account_repo.collection.find_one(
         {"_id": ObjectId(account_data["id"])}
         )
-    print(props)
     if "hosting" not in props:
         props["hosting"] = []
     props["hosting"].append(event_id)
