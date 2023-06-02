@@ -1,5 +1,19 @@
 ## Journals
 
+## 6/1
+* adding event ids to accounts
+
+Worked with the team to add event ids to the hosting list on the account that created/is hosting the event.  Took a lot of logic, time, leaning on others, but got it up in running.  Ended up accessing the model by using the find_one to get the given id, then appended that to the host list, then update the collection by the id (that now includes the new list with ids).  The hardest thing to work around was not rewriting the host list every time we updated the account.
+We were also able to make the update to the AccountDetails page to pull the events specific to the logged in user.
+That is until we merged code and we lost a lot of functionality.
+We also noticed we were running off two db names, passportpals and passport_pals, not sure if that interfered with our code after merging or not
+
+
+## 5/31
+* created the account detail page
+
+Worked with Maggie to create the account detail page using the fetchWithCookie method.  We are able to retrieve account details from the user's token when the user is logged in.
+
 
 ## 5/30
 * created the login page, created the sign up page
@@ -25,9 +39,9 @@ Had a fun moment realizing we omitted code from a previous push, so got that bac
 Partnered with Rebecca to work on the event detail page.  We are returning the data that we want for each event.  We added the form to attend an event.  We need to work out the logic so if someone signs up for an event or hosts an event that it appears on the user page specific to that user.  To be continued tomorrow.
 
 
-
 ## 5/23
 * Create delete_event with whole team, updated update_event, React home page, react nav bar
+
 We changed our update_event function to return the actual changed document instead of the changed props being returned.
 Delete was pretty simple, just made sure the id=event_id
 Created react home page and the navbar - very basic for now, but functionality is there and was able to pull data from our backend successfully, so that's fun!
@@ -35,9 +49,9 @@ Had to add react-router-dom to our dependencies by doing an npm install, realize
 Also had a fun moment of restoring to a previous commit
 
 
-
 ## 5/21
 * Created update_event with whole team
+
 Took most of the day figuring out how to make the update function work.  Ended up using the return document to get our updated data back. And props=event.dict() to get request body and turn it into a dictionary.  Learned that $set places new info in and updates a single instance and replaces entire dictionary.  We were stuck on having it update, but resetting all the other fields and receiving a 500 error in swagger.  We were able to verify that the user is not able to login without valid username and password.
 
 
