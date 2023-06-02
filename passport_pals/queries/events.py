@@ -5,7 +5,7 @@ from models import EventIn, EventOut
 from pymongo import ReturnDocument
 
 class EventQueries(Queries):
-    DB_NAME = "passportpals"
+    DB_NAME = "passport_pals"
     COLLECTION = "events"
 
     def create(self, event: EventIn) -> EventOut:
