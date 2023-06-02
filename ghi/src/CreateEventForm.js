@@ -80,15 +80,15 @@ function CreateEventForm () {
     data.language = language;
     data.description = description;
 
-    const createEventUrl = "http://localhost:8000/api/events";
-    const fetchConfig = {
-      method: "post",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    };
+			const createEventUrl = "http://localhost:8000/api/events";
+  			const fetchConfig = {
+    		method: "post",
+    		body: JSON.stringify(data),
+    		headers: {
+      		'Content-Type': 'application/json',
+    },
+    credentials: "include",
+  };
 
     const response = await fetch(createEventUrl, fetchConfig);
     if (response.ok) {
