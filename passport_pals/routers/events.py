@@ -17,31 +17,31 @@ async def create_event(
     account_repo: AccountQueries = Depends(),
 ):
     created_event = repo.create(event)
-    try:
-        if account_data is None or "id" not in account_data:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="User authentication required",
-            )
-        if not event:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail="Event not found",
-            )
-        event_id = created_event.id
-        props = account_repo.collection.find_one(
-            {"_id": ObjectId(account_data["id"])}
-            )
-        if "hosting" not in props:
-            props["hosting"] = []
-        props["hosting"].append(event_id)
-        account_repo.collection.update_one(
-            {"_id": ObjectId(account_data["id"])},
-            {"$set": props},
+    # try:
+    if account_data is None or "id" not in account_data:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="User authentication required",
         )
-    except Exception as e:
-        print("e:", e)
-        raise HTTPException(status_code=500, detail="Internal server error")
+    if not event:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Event not found",
+        )
+    event_id = created_event.id
+    props = account_repo.collection.find_one(
+        {"_id": ObjectId(account_data["id"])}
+        )
+    if "hosting" not in props:
+        props["hosting"] = []
+    props["hosting"].append(event_id)
+    account_repo.collection.update_one(
+        {"_id": ObjectId(account_data["id"])},
+        {"$set": props},
+    )
+    # except Exception as e:
+    #     print("e:", e)
+    #     raise HTTPException(status_code=500, detail="Internal server error")
     return created_event
 
 

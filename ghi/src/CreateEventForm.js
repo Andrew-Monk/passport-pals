@@ -99,6 +99,7 @@ function CreateEventForm () {
     		headers: {
       		'Content-Type': 'application/json',
     },
+    credentials: "include",
   };
 
   		const response = await fetch(createEventUrl, fetchConfig);
