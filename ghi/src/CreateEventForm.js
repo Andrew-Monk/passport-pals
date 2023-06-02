@@ -80,7 +80,7 @@ function CreateEventForm () {
     data.language = language;
     data.description = description;
 
-			const createEventUrl = "http://localhost:8000/api/events/create";
+			const createEventUrl = "http://localhost:8000/api/events";
   			const fetchConfig = {
     		method: "post",
     		body: JSON.stringify(data),
