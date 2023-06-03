@@ -26,7 +26,7 @@ function AccountDetail() {
     const response = await fetchWithCookie(
       `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/token`
     );
-    console.log(response);
+    console.log(response.account);
     setAccountData(response.account);
   };
   useEffect(() => {
