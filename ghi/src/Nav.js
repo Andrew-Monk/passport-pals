@@ -3,8 +3,14 @@ import { NavLink } from "react-router-dom";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 
 function Nav() {
-  const { logout } = useToken
+  const { logout } = useToken();
   const { token } = useToken();
+
+  const handleLogout = () => {
+    logout();
+    alert("You have been logged out successfully");
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-info navbar-fixed-top">
       <div className="container-fluid">
@@ -23,12 +29,17 @@ function Nav() {
                   </NavLink>
                 </li>
                 <li>
+                  <NavLink className="navbar" to="/events/create">
+                    Host Event
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink className="navbar" to="/myaccount">
                     Account
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="navbar" to="/" onClick={logout}>
+                  <NavLink className="navbar" to="/" onClick={handleLogout}>
                     Logout
                   </NavLink>
                 </li>

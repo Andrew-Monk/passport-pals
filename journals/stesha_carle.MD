@@ -1,5 +1,12 @@
 ## Journals
 
+
+## 6/2
+* adding event ids to accounts
+
+Worked with the team to debug some merged code.  Finally got it working to where it was yesterday.  One issue we are having is that our events are showing up, but only updating after we log back in again.
+
+
 ## 6/1
 * adding event ids to accounts
 
