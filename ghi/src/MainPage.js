@@ -34,6 +34,7 @@ function MainPage() {
               <th>Title</th>
               <th>Location</th>
               <th>Picture</th>
+              <th>Category</th>
             </tr>
           </thead>
           <tbody>
@@ -44,6 +45,7 @@ function MainPage() {
                 </td>
                 <td>{event.location}</td>
                 <td>{event.picture}</td>
+                <td>{event.category}</td>
               </tr>
             ))}
           </tbody>
