@@ -25,31 +25,41 @@ function MainPage() {
 
   return (
     <>
-      <div>
-        <h1>Passport Pals</h1>
-        <h2>Events</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Location</th>
-              <th>Picture</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody>
-            {randomEvents.map((event) => (
+      {/* <div>
+        <img className="hero-image" src="https://i.imgur.com/KJnUkIb.jpg" />
+      </div> */}
+      <div className="card-section">
+        <p className="upcoming-events">Upcoming Events Around the World</p>
+        {/* <div className="category-bar">
+          <ion-icon className="category-icon" name="bicycle-outline"></ion-icon>
+          <ion-icon
+            className="category-icon"
+            name="fast-food-outline"
+          ></ion-icon>
+          <ion-icon className="category-icon" name="school-outline"></ion-icon>
+          <ion-icon className="category-icon" name="happy-outline"></ion-icon>
+        </div> */}
+        <div className="cards-container">
+          {randomEvents.map((event) => (
+            <div className="card">
               <tr key={event.id}>
-                <td>
-                  <Link to={`/events/${event.id}`}>{event.event_title}</Link>
-                </td>
-                <td>{event.location}</td>
-                <td>{event.picture}</td>
-                <td>{event.category}</td>
+                <Link className="card-title" to={`/events/${event.id}`}>
+                  {event.event_title}
+                </Link>
+                <p className="card-location">{event.location}</p>
+                <div className="card-image-container">
+                  <img className="card-image" src={event.picture} />
+                </div>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="hero-image">
+        <img src="https://i.imgur.com/JdMJn0G.jpg" />
+        <div>
+          <p>PassportPals is blah blah blah</p>
+        </div>
       </div>
     </>
   );
