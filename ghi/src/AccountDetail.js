@@ -29,6 +29,7 @@ function AccountDetail() {
     setAccountData(response.account);
     console.log("account:", response.account.hosting)
   };
+  
   useEffect(() => {
     fetchEvents();
     handleFetch();
