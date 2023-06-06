@@ -1,5 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
+import useAuthContext from "@galvanize-inc/jwtdown-for-react";
+
+const categories = [
+  { value: "Food & Drink", label: "Food & Drink" },
+  { value: "Wellness & Fitness", label: "Wellness & Fitness" },
+  { value: "Art & Cultural", label: "Art & Cultural" },
+  { value: "Restaurants & Bars", label: "Restaurants & Bars" },
+  { value: "Sightseeing & Local Spotsr", label: "Sightseeing & Local Spots" },
+];
 
 function CreateEventForm () {
   const [title, setTitle] = useState("");
@@ -12,7 +21,7 @@ function CreateEventForm () {
   const [language, setLanguage] = useState("");
   const [payment, setPayment] = useState("");
   const [description, setDescription] = useState("");
-  const { token } = useToken();
+  const { token } = useAuthContext();
 
 
   const handleTitleChange = (event) => {
@@ -105,6 +114,9 @@ function CreateEventForm () {
     }
   };
 
+    useEffect(() => {
+  }, [token]);
+
   return (
     <div className="row">
       <div className="offset-3 col-6">
@@ -177,7 +189,17 @@ function CreateEventForm () {
                 />
                 <label htmlFor="picture">Picture</label>
               </div>
-              <div className="form-floating mb-3">
+              <div>
+                <select onChange={handleCategoryChange} value={category} required name="category" id="category" className="form-select">
+                  <option value="">Choose a Category...</option>
+                  {categories.map((category) => {
+                    return(
+                        <option key={category.value} value={category.value}>{category.label}</option>
+                    );
+                  })}
+                </select>
+              </div>
+              {/* <div className="form-floating mb-3">
                 <input
                   value={category}
                   onChange={handleCategoryChange}
@@ -189,7 +211,7 @@ function CreateEventForm () {
                   className="form-control"
                 />
                 <label htmlFor="category">Category</label>
-              </div>
+              </div> */}
               <div className="form-floating mb-3">
                 <input
                   value={cost}

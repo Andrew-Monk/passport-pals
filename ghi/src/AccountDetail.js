@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
+import useAuthContext from "@galvanize-inc/jwtdown-for-react";
 import { Link } from "react-router-dom";
 
 function AccountDetail() {
   const [accountData, setAccountData] = useState("");
   const { fetchWithCookie } = useToken();
   const [events, setEvents] = useState([]);
+  const { token } = useAuthContext();
 
   async function fetchEvents() {
     const eventsUrl = "http://localhost:8000/api/events/";
@@ -14,13 +16,10 @@ function AccountDetail() {
     if (response.ok) {
       const responseData = await response.json();
       const eventsData = responseData.events;
+      console.log(eventsData);
       setEvents(eventsData);
     }
   }
-
-  useEffect(() => {
-    fetchEvents();
-  }, []);
 
   const handleFetch = async () => {
     const response = await fetchWithCookie(
@@ -28,10 +27,12 @@ function AccountDetail() {
     );
     console.log(response.account);
     setAccountData(response.account);
+    console.log("account:", response.account.hosting);
   };
   useEffect(() => {
+    fetchEvents();
     handleFetch();
-  }, []);
+  }, [token]);
 
   return (
     <>
