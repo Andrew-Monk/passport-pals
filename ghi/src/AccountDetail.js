@@ -4,29 +4,30 @@ import useAuthContext from "@galvanize-inc/jwtdown-for-react";
 import { Link } from "react-router-dom";
 import { Navigate, useNavigate } from "react-router-dom";
 
-
 function AccountDetail() {
   const [accountData, setAccountData] = useState({});
   const { fetchWithCookie } = useToken();
   const [events, setEvents] = useState([]);
   const { token } = useToken();
   const navigate = useNavigate();
-  const { token } = useAuthContext();
 
   useEffect(() => {
     if (!token) {
       navigate("/login");
-
-  async function fetchEvents() {
-    const eventsUrl = "http://localhost:8000/api/events/";
-    const response = await fetch(eventsUrl);
-    console.log(response);
-    if (response.ok) {
-      const responseData = await response.json();
-      const eventsData = responseData.events;
-      console.log(eventsData)
-      setEvents(eventsData);
     }
+
+    const fetchEvents = async () => {
+      const eventsUrl = "http://localhost:8000/api/events/";
+      const response = await fetch(eventsUrl);
+      console.log(response);
+      if (response.ok) {
+        const responseData = await response.json();
+        const eventsData = responseData.events;
+        console.log(eventsData);
+        setEvents(eventsData);
+      }
+    };
+
     const handleFetch = async () => {
       const accountUrl = "http://localhost:8000/token";
       const response = await fetch(accountUrl, {
@@ -35,6 +36,7 @@ function AccountDetail() {
       console.log(response);
       setAccountData(response.account);
     };
+
     handleFetch();
     fetchEvents();
   }, [navigate, token]);

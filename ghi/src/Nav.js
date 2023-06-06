@@ -32,6 +32,11 @@ function Nav() {
                 </NavLink>
               </li>
               <li>
+                <NavLink className="navlink" to="/events/create">
+                  Host Event
+                </NavLink>
+              </li>
+              <li>
                 <NavLink className="navlink" to="/myaccount">
                   Account
                 </NavLink>
