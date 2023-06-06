@@ -11,7 +11,6 @@ import UserSignup from "./UserSignup";
 import AccountDetail from "./AccountDetail";
 
 function App() {
-  // const baseUrl = "http://localhost:8000";
   return (
     <div>
       <BrowserRouter>

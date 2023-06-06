@@ -35,7 +35,7 @@ class AccountQueries(Queries):
         return AccountOut(**props)
 
     def get_user_by_id(self, id: str) -> AccountOut:
-        props = self.collection.find_one({"_id": id})
+        props = self.collection.find_one({"_id": ObjectId(id)})
         if not props:
             return None
         props["id"] = str(props["_id"])

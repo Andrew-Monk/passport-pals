@@ -12,58 +12,60 @@ function Nav() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-info navbar-fixed-top">
-      <div className="container-fluid">
-        <div className="row">
-          <ul className="navbar-nav mx-2 me-auto mb-5 mb-lg-3">
-            {token ? (
-              <>
-                <li>
-                  <NavLink className="navbar" to="/">
-                    Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="navbar" to="/events/list">
-                    List of Events
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="navbar" to="/events/create">
-                    Host Event
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="navbar" to="/myaccount">
-                    Account
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="navbar" to="/" onClick={handleLogout}>
-                    Logout
-                  </NavLink>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <NavLink className="navbar" to="/">
-                    Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="navbar" to="/login">
-                    Login
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="navbar" to="/usersignup">
-                    Sign Up
-                  </NavLink>
-                </li>
-              </>
-            )}
-          </ul>
+    <nav className="#">
+      <div className="#">
+        <div className="nav">
+          <div className="nav-title-container">
+            <p className="nav-title">PassportPals</p>
+            <img className="suitcase" src="https://i.imgur.com/VF1Nh3f.png" />
+          </div>
+          {token ? (
+            <div className="navlinks">
+              <li>
+                <NavLink className="navlink" to="/">
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="navlink" to="/events/list">
+                  List of Events
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="navlink" to="/events/create">
+                  Host Event
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="navlink" to="/myaccount">
+                  Account
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="navlink" to="/" onClick={logout}>
+                  Logout
+                </NavLink>
+              </li>
+            </div>
+          ) : (
+            <div className="navlinks">
+              <li>
+                <NavLink className="navlink" to="/">
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="navlink" to="/login">
+                  Login
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="navlink" to="/usersignup">
+                  Sign Up
+                </NavLink>
+              </li>
+            </div>
+          )}
         </div>
       </div>
     </nav>
