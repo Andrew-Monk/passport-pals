@@ -13,11 +13,12 @@ class MyAuthenticator(Authenticator):
     ):
         # Use your repo to get the account based on the
         # username (which could be an email)
+        print("getting account data")
         return accounts.get(email)
 
     def get_account_getter(
         self,
-        accounts: AccountQueries = Depends(),
+        accounts: AccountQueries = Depends(use_cache=False),
     ):
         # Return the accounts. That's it.
         return accounts
