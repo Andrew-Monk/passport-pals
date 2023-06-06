@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useEffect, useState } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import useAuthContext from "@galvanize-inc/jwtdown-for-react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const categories = [
   { value: "Food & Drink", label: "Food & Drink" },
@@ -10,7 +11,7 @@ const categories = [
   { value: "Sightseeing & Local Spotsr", label: "Sightseeing & Local Spots" },
 ];
 
-function CreateEventForm () {
+function CreateEventForm() {
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [date, setDate] = useState("");
@@ -21,8 +22,8 @@ function CreateEventForm () {
   const [language, setLanguage] = useState("");
   const [payment, setPayment] = useState("");
   const [description, setDescription] = useState("");
-  const { token } = useAuthContext();
-
+  const { token } = useToken();
+  const navigate = useNavigate();
 
   const handleTitleChange = (event) => {
     const value = event.target.value;
@@ -89,15 +90,15 @@ function CreateEventForm () {
     data.language = language;
     data.description = description;
 
-			const createEventUrl = "http://localhost:8000/api/events";
-  			const fetchConfig = {
-    		method: "post",
-    		body: JSON.stringify(data),
-    		headers: {
-      		'Content-Type': 'application/json',
-    },
-    credentials: "include",
-  };
+    const createEventUrl = "http://localhost:8000/api/events";
+    const fetchConfig = {
+      method: "post",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    };
 
     const response = await fetch(createEventUrl, fetchConfig);
     if (response.ok) {
@@ -114,8 +115,11 @@ function CreateEventForm () {
     }
   };
 
-    useEffect(() => {
-  }, [token]);
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, [token, navigate]);
 
   return (
     <div className="row">

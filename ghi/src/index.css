@@ -1,13 +1,139 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Montserrat";
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+* {
+  background-color: whitesmoke;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  border-bottom: 2px rgb(21, 21, 22);
+  width: 100%;
+  height: 100px;
+  padding-bottom: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px rgb(212, 212, 212) solid;
+}
+
+.nav-title-container {
+  display: flex;
+}
+
+.suitcase {
+  height: 50px;
+  width: 50px;
+}
+
+.nav-title {
+  font-weight: 700;
+  font-size: 35px;
+  padding-top: 30px;
+  padding-left: 20px;
+  color: rgb(255, 89, 0);
+}
+
+.navlinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  background-color: white;
+  padding: 40px;
+  height: 40px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: solid rgb(212, 212, 212) 1px;
+  border-radius: 50px;
+  box-shadow: 0px 3px 7px 3px rgba(217, 217, 217, 0.705);
+}
+
+.navlink {
+  color: rgb(43, 43, 43);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navlink:hover {
+  color: rgb(137, 137, 137);
+}
+
+.category-bar {
+  display: flex;
+  gap: 50px;
+  padding: 35px;
+}
+
+.category-icon {
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+}
+
+.card-section {
+  margin-top: 20px;
+  display: grid;
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.upcoming-events {
+  font-weight: 600;
+}
+
+.cards-container {
+  display: flex;
+  gap: 80px;
+}
+
+.card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 3px 7px 3px rgba(217, 217, 217, 0.705);
+}
+
+.card:hover {
+  transform: translate(0, -8px);
+  transition: 0.5s;
+}
+
+.card-title {
+  text-align: center;
+  font-weight: 400;
+  color: rgb(21, 21, 22);
+  text-decoration: none;
+}
+
+.card-location {
+  font-weight: 500;
+  color: rgb(43, 43, 43);
+  text-align: center;
+}
+.card-image-container {
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+}
+.card-image {
+  box-shadow: 0px 3px 7px 3px rgba(217, 217, 217, 0.705);
+}
+
+.hero-image {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
