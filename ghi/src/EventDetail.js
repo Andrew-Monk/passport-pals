@@ -11,11 +11,9 @@ function EventDetail() {
   const fetchEvent = useCallback(async () => {
     const eventUrl = `http://localhost:8000/api/events/${event_id}/`;
     const response = await fetch(eventUrl);
-    console.log(response);
     if (response.ok) {
       const responseData = await response.json();
       const eventData = responseData;
-      console.log(eventData);
       setEventDetails(eventData);
     }
   }, [event_id]);

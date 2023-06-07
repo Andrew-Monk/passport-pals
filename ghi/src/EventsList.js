@@ -17,7 +17,6 @@ function EventsList() {
   async function fetchEvents() {
     const eventsUrl = "http://localhost:8000/api/events/";
     const response = await fetch(eventsUrl);
-    console.log(response);
     if (response.ok) {
       const responseData = await response.json();
       const eventsData = responseData.events;
@@ -67,7 +66,7 @@ function EventsList() {
       <div className="list-container">
         {filteredEvents.map((event) => {
           return (
-            <div className="list-card">
+            <div key={event.id} className="list-card">
               <p>
                 <Link to={`/events/${event.id}`}>{event.event_title}</Link>
               </p>
