@@ -20,9 +20,13 @@ code {
   width: 100%;
   height: 100px;
   padding-bottom: 110px;
+  padding-bottom: 110px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: whitesmoke;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* border-bottom: 4px rgb(212, 212, 212) solid; */
   background-color: whitesmoke;
   border: 1px solid rgba(255, 255, 255, 0.18);
   /* border-bottom: 4px rgb(212, 212, 212) solid; */
@@ -30,6 +34,7 @@ code {
 
 .nav-title-container {
   display: flex;
+  align-items: center;
   align-items: center;
 }
 
@@ -42,11 +47,17 @@ code {
   text-shadow: 1px 1px 2px #818181;
 }
 
+.logo-icon {
+  height: 40px;
+  width: 40px;
+}
+
 .navlinks {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 40px;
+  background-color: rgb(244, 244, 244);
   background-color: rgb(244, 244, 244);
   padding: 40px;
   height: 40px;
@@ -54,6 +65,7 @@ code {
   margin-right: 10px;
   border: solid rgb(212, 212, 212) 1px;
   border-radius: 50px;
+  box-shadow: 0px 3px 7px 3px rgba(194, 194, 194, 0.705);
   box-shadow: 0px 3px 7px 3px rgba(194, 194, 194, 0.705);
 }
 
@@ -65,6 +77,15 @@ code {
 
 .navlink:hover {
   color: rgb(137, 137, 137);
+}
+
+.nav-user {
+  padding: 20px;
+  margin: 20px;
+  display: inline;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-user {
@@ -89,8 +110,14 @@ code {
   position: fixed;
   top: 0;
   left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 90%;
   object-fit: cover;
   z-index: 0;
   opacity: 90%;
@@ -103,9 +130,21 @@ code {
   padding-left: 50px;
   padding-right: 50px;
   justify-content: center;
+  justify-content: center;
 }
 .upcoming-events {
   font-weight: 600;
+  color: rgb(244, 244, 244);
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px #838383;
+  border-radius: 40px;
+  padding: 20px;
+  border: solid rgb(212, 212, 212) 1px;
+  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
   color: rgb(244, 244, 244);
   text-align: center;
   font-size: 25px;
@@ -122,6 +161,7 @@ code {
 .cards-container {
   display: flex;
   justify-content: center;
+  justify-content: center;
   gap: 80px;
 }
 
@@ -130,6 +170,11 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* background-color: rgb(244, 244, 244);
+  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.705); */
+  background: rgba(245, 245, 245, 0.25);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   /* background-color: rgb(244, 244, 244);
   box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.705); */
   background: rgba(245, 245, 245, 0.25);
