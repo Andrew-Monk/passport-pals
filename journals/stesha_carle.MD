@@ -1,6 +1,18 @@
 ## Journals
 
 
+## 6/6
+* fixed frontend for signing up for events and fixed frontend for not rendering updated data to our account page
+
+With the help of Andrew Singley, we made some big improvements on our functionality, mainly finding a bug in the backend code on how data was fetched.  Added a pydantic model to include email and event_id, the url cannot process the @ symbol from our email address.  We also added credentials: include to our get cookie function to make sure we were returning updated account data, so we could see events after creating (and signing up for them) in the accounts page.
+
+
+## 6/5
+* added filter open to list of events, protected the host event, created the front end log in feature
+
+Worked with Maggie yesterday to add a lot of features, update the nav bar.  Coding was really smooth and efficient
+
+
 ## 6/2
 * adding event ids to accounts
 
