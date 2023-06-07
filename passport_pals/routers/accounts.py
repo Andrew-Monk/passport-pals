@@ -64,7 +64,13 @@ async def create_account(
 async def get_account(
     email: str,
     repo: AccountQueries = Depends(),
+    account_data: dict = Depends(authenticator.try_get_current_account_data),
 ):
+    if account_data is None or "id" not in account_data:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="User authentication required",
+        )
     account = repo.get(email)
     return account
 
