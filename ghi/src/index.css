@@ -42,6 +42,11 @@ code {
   text-shadow: 1px 1px 2px #818181;
 }
 
+.logo-icon {
+  height: 40px;
+  width: 40px;
+}
+
 .navlinks {
   display: flex;
   justify-content: space-between;

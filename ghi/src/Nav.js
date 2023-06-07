@@ -33,6 +33,7 @@ function Nav() {
         <div className="nav">
           <div className="nav-title-container">
             <p className="nav-title">PassportPals</p>
+            <img className="logo-icon" src="https://i.imgur.com/tYs0c3n.png" />
           </div>
           {token ? (
             <div className="navlinks">

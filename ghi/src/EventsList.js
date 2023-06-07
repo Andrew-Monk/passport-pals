@@ -73,7 +73,11 @@ function EventsList() {
                 <Link to={`/events/${event.id}`}>{event.event_title}</Link>
               </p>
               <p>{event.location}</p>
-              <img className="list-card-picture" src={event.picture} />
+              <img
+                className="list-card-picture"
+                src={event.picture}
+                alt="card-picture"
+              />
               <p>{event.category}</p>
             </div>
           );

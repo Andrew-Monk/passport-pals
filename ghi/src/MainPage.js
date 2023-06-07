@@ -79,7 +79,9 @@ function MainPage() {
         </div>
       </div>
       <div className="see-more-container">
-        <button className="upcoming-events">Discover more events</button>
+        <Link to="/events/list">
+          <button className="upcoming-events">Discover more events</button>
+        </Link>
       </div>
     </>
   );
