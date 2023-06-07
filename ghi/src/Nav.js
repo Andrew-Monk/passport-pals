@@ -22,7 +22,6 @@ function Nav() {
         console.log(response);
         setAccountData(response.account);
       };
-
       handleFetch();
     }
   }, [token]);
@@ -57,7 +56,7 @@ function Nav() {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="navlink" to="/" onClick={logout}>
+                <NavLink className="navlink" to="/" onClick={handleLogout}>
                   Logout
                 </NavLink>
               </li>

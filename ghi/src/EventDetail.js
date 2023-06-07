@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { Link } from "react-router-dom";
@@ -6,10 +6,9 @@ import { Link } from "react-router-dom";
 function EventDetail() {
   const { event_id } = useParams();
   const [eventDetails, setEventDetails] = useState([]);
-  const [accountData, setAccountData] = useState({});
   const { fetchWithCookie, token } = useToken();
 
-  async function fetchEvent() {
+  const fetchEvent = useCallback(async () => {
     const eventUrl = `http://localhost:8000/api/events/${event_id}/`;
     const response = await fetch(eventUrl);
     console.log(response);
@@ -19,11 +18,11 @@ function EventDetail() {
       console.log(eventData);
       setEventDetails(eventData);
     }
-  }
+  }, [event_id]);
 
   useEffect(() => {
     fetchEvent();
-  }, [event_id]);
+  }, [fetchEvent]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -46,7 +45,7 @@ function EventDetail() {
       credentials: "include",
     };
 
-    const response = await fetch(signUpUrl, fetchConfig);
+    await fetch(signUpUrl, fetchConfig);
 
     alert("You're signed up!");
   };
@@ -56,7 +55,7 @@ function EventDetail() {
       <div>
         <h1>{eventDetails.event_title}</h1>
         <h3>{eventDetails.location}</h3>
-        <img src={eventDetails.picture} alt="event image" />
+        <img src={eventDetails.picture} alt="event" />
       </div>
       <div>
         <h2>Event Details</h2>
