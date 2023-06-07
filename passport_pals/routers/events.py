@@ -51,13 +51,7 @@ async def event_detail(
     event_id: str,
     response: Response,
     repo: EventQueries = Depends(),
-    account_data: dict = Depends(authenticator.try_get_current_account_data)
 ):
-    if account_data is None or "id" not in account_data:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="User authentication required",
-        )
     event = repo.event_detail(event_id)
     if event is None:
         response.status_code = 404
