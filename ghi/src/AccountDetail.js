@@ -1,27 +1,23 @@
 import { useState, useEffect } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
+import useAuthContext from "@galvanize-inc/jwtdown-for-react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function AccountDetail() {
   const [accountData, setAccountData] = useState({});
+  const { fetchWithCookie } = useToken();
   const [events, setEvents] = useState([]);
   const { token } = useToken();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!token) {
-      navigate("/login");
-    }
-
     const fetchEvents = async () => {
       const eventsUrl = "http://localhost:8000/api/events/";
       const response = await fetch(eventsUrl);
-      console.log(response);
       if (response.ok) {
         const responseData = await response.json();
         const eventsData = responseData.events;
-        console.log(eventsData);
         setEvents(eventsData);
       }
     };
@@ -31,8 +27,11 @@ function AccountDetail() {
       const response = await fetch(accountUrl, {
         credentials: "include",
       }).then((response) => response.json());
-      console.log(response);
-      setAccountData(response.account);
+      if (response == null) {
+        navigate("/login");
+      } else {
+        setAccountData(response.account);
+      }
     };
 
     handleFetch();
@@ -70,7 +69,6 @@ function AccountDetail() {
                   </tr>
                 );
               }
-              return null;
             })}
         </tbody>
       </table>
@@ -102,7 +100,6 @@ function AccountDetail() {
                   </tr>
                 );
               }
-              return null;
             })}
         </tbody>
       </table>
