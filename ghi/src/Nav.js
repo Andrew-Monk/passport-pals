@@ -19,7 +19,6 @@ function Nav() {
         const response = await fetch(accountUrl, {
           credentials: "include",
         }).then((response) => response.json());
-        console.log(response);
         setAccountData(response.account);
       };
       handleFetch();

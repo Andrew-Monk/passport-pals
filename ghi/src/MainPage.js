@@ -38,17 +38,15 @@ function MainPage() {
         <p className="upcoming-events">Upcoming Events Around the World</p>
         <div className="cards-container">
           {randomEvents.map((event) => (
-            <tbody className="card">
-              <tr key={event.id}>
-                <Link className="card-title" to={`/events/${event.id}`}>
-                  {event.event_title}
-                </Link>
-                <p className="card-location">{event.location}</p>
-                <div className="card-image-container">
-                  <img className="card-image" src={event.picture} alt="card"/>
-                </div>
-              </tr>
-            </tbody>
+            <div key={event.id} className="card">
+              <Link className="card-title" to={`/events/${event.id}`}>
+                {event.event_title}
+              </Link>
+              <p className="card-location">{event.location}</p>
+              <div className="card-image-container">
+                <img className="card-image" src={event.picture} alt="card" />
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -68,7 +66,9 @@ function MainPage() {
         </div>
       </div>
       <div className="see-more-container">
-        <Link to="/events/list"><button className="upcoming-events">Discover more events</button></Link>
+        <Link to="/events/list">
+          <button className="upcoming-events">Discover more events</button>
+        </Link>
       </div>
     </>
   );

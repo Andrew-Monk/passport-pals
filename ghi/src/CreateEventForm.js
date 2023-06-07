@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useNavigate } from "react-router-dom";
@@ -116,11 +115,17 @@ function CreateEventForm() {
   };
 
   useEffect(() => {
-    if (!token) {
-      navigate("/login");
-    }
-  }, [token, navigate]);
-
+    const handleFetch = async () => {
+      const accountUrl = "http://localhost:8000/token";
+      const response = await fetch(accountUrl, {
+        credentials: "include",
+      }).then((response) => response.json());
+      if (response == null) {
+        navigate("/login");
+      }
+    };
+    handleFetch();
+  }, [navigate, token]);
   return (
     <div className="row">
       <div className="offset-3 col-6">
@@ -194,11 +199,20 @@ function CreateEventForm() {
                 <label htmlFor="picture">Picture</label>
               </div>
               <div>
-                <select onChange={handleCategoryChange} value={category} required name="category" id="category" className="form-select">
+                <select
+                  onChange={handleCategoryChange}
+                  value={category}
+                  required
+                  name="category"
+                  id="category"
+                  className="form-select"
+                >
                   <option value="">Choose a Category...</option>
                   {categories.map((category) => {
-                    return(
-                        <option key={category.value} value={category.value}>{category.label}</option>
+                    return (
+                      <option key={category.value} value={category.value}>
+                        {category.label}
+                      </option>
                     );
                   })}
                 </select>
