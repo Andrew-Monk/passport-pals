@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   { value: "Food & Drink", label: "Food & Drink" },
@@ -139,7 +139,7 @@ function CreateEventForm() {
                   id="title"
                   className="form-control"
                 />
-                <label htmlFor="vin">Title</label>
+                <label htmlFor="title">Title</label>
               </div>
               <div className="form-floating mb-0">
                 <input
