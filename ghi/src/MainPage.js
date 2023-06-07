@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 function MainPage() {
   const [randomEvents, setRandomEvents] = useState([]);
+  const picCount = 8;
+  const [background, setBackground] = useState("");
 
   async function fetchEvents() {
     const eventsUrl = "http://localhost:8000/api/events/";
@@ -10,7 +12,7 @@ function MainPage() {
     if (response.ok) {
       const responseData = await response.json();
       const eventsData = responseData.events;
-      setRandomEvents(getRandomEvents(eventsData, 3));
+      setRandomEvents(getRandomEvents(eventsData, 4));
     }
   }
 
@@ -19,7 +21,14 @@ function MainPage() {
     return shuffled.slice(0, count);
   };
 
+  const changeBackground = () => {
+    const num = Math.ceil(Math.random() * picCount);
+    const randomPic = `url(background/${num}.jpg)`;
+    setBackground(randomPic);
+  };
+
   useEffect(() => {
+    changeBackground();
     fetchEvents();
   }, []);
 
@@ -55,11 +64,22 @@ function MainPage() {
           ))}
         </div>
       </div>
-      <div className="hero-image">
-        <img src="https://i.imgur.com/JdMJn0G.jpg" />
+      <div>
+        <img
+          className="hero-image"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), ${background}`,
+            backgroundSize: "cover",
+            zIndex: -1,
+          }}
+        />
+
         <div>
           <p>PassportPals is blah blah blah</p>
         </div>
+      </div>
+      <div className="see-more-container">
+        <p className="upcoming-events">Discover events by category</p>
       </div>
     </>
   );

@@ -1,15 +1,31 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 
 function Nav() {
   const { logout } = useToken();
   const { token } = useToken();
+  const [accountData, setAccountData] = useState({});
 
   const handleLogout = () => {
     logout();
     alert("You have been logged out successfully");
   };
+
+  useEffect(() => {
+    if (token) {
+      const handleFetch = async () => {
+        const accountUrl = "http://localhost:8000/token";
+        const response = await fetch(accountUrl, {
+          credentials: "include",
+        }).then((response) => response.json());
+        console.log(response);
+        setAccountData(response.account);
+      };
+
+      handleFetch();
+    }
+  }, [token]);
 
   return (
     <nav className="#">
@@ -17,7 +33,6 @@ function Nav() {
         <div className="nav">
           <div className="nav-title-container">
             <p className="nav-title">PassportPals</p>
-            <img className="suitcase" src="https://i.imgur.com/VF1Nh3f.png" />
           </div>
           {token ? (
             <div className="navlinks">
@@ -28,7 +43,7 @@ function Nav() {
               </li>
               <li>
                 <NavLink className="navlink" to="/events/list">
-                  List of Events
+                  See All Events
                 </NavLink>
               </li>
               <li>
@@ -46,6 +61,7 @@ function Nav() {
                   Logout
                 </NavLink>
               </li>
+              <div className="nav-user">Welcome, {accountData.full_name}!</div>
             </div>
           ) : (
             <div className="navlinks">

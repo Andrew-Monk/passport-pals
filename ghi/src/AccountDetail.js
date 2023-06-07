@@ -39,8 +39,6 @@ function AccountDetail() {
 
     handleFetch();
     fetchEvents();
-    handleFetch();
-  }, [token]);
   }, [navigate, token]);
 
   return (
