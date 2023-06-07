@@ -14,7 +14,11 @@ Today, I worked on:
 
 Today, I worked on:
 
-* Adding the
+* Adding the unit tests
+
+As a group we worked on the unit tests. We did live share so that
+we could each add our own unit test and worked with each other to
+debug and get them working.
 
 ## June 06, 2023
 
