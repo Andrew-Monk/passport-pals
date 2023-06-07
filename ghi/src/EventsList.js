@@ -45,52 +45,41 @@ function EventsList() {
   };
 
   return (
-    <div>
-      <h1>Passport Pals</h1>
-      <table>
-        <thead>
-          <h2>Events</h2>
-          <select
-            onChange={handleCategoryChange}
-            value={category}
-            required
-            name="category"
-            id="category"
-            className="form-select"
-          >
-            <option value="">Choose a Category...</option>
-            {categories.map((category) => {
-              return (
-                <option key={category.value} value={category.value}>
-                  {category.label}
-                </option>
-              );
-            })}
-          </select>
-          <tr>
-            <th>Title</th>
-            <th>Location</th>
-            <th>Picture</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* {events.filter((event) => (event.category == category)).map((event) => { */}
-          {filteredEvents.map((event) => {
-            return (
-              <tr key={event.id}>
-                <td>
-                  <Link to={`/events/${event.id}`}>{event.event_title}</Link>
-                </td>
-                <td>{event.location}</td>
-                <td>{event.picture}</td>
-                <td>{event.category}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+    <>
+      <h2>Events</h2>
+      <select
+        onChange={handleCategoryChange}
+        value={category}
+        required
+        name="category"
+        id="category"
+        className="form-select"
+      >
+        <option value="">Choose a Category...</option>
+        {categories.map((category) => {
+          return (
+            <option key={category.value} value={category.value}>
+              {category.label}
+            </option>
+          );
+        })}
+      </select>
+      <div className="list-container">
+        {/* {events.filter((event) => (event.category == category)).map((event) => { */}
+        {filteredEvents.map((event) => {
+          return (
+            <div className="list-card">
+              <p>
+                <Link to={`/events/${event.id}`}>{event.event_title}</Link>
+              </p>
+              <p>{event.location}</p>
+              <img className="list-card-picture" src={event.picture} />
+              <p>{event.category}</p>
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
