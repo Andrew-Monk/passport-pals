@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 
 function MainPage() {
@@ -6,7 +6,7 @@ function MainPage() {
   const picCount = 8;
   const [background, setBackground] = useState("");
 
-  async function fetchEvents() {
+  const fetchEvents = useCallback(async () => {
     const eventsUrl = "http://localhost:8000/api/events/";
     const response = await fetch(eventsUrl);
     if (response.ok) {
@@ -14,7 +14,7 @@ function MainPage() {
       const eventsData = responseData.events;
       setRandomEvents(getRandomEvents(eventsData, 4));
     }
-  }
+  }, []);
 
   const getRandomEvents = (eventList, count) => {
     const shuffled = eventList.sort(() => 0.5 - Math.random());
@@ -30,24 +30,12 @@ function MainPage() {
   useEffect(() => {
     changeBackground();
     fetchEvents();
-  }, []);
+  }, [fetchEvents]);
 
   return (
     <>
-      {/* <div>
-        <img className="hero-image" src="https://i.imgur.com/KJnUkIb.jpg" />
-      </div> */}
       <div className="card-section">
         <p className="upcoming-events">Upcoming Events Around the World</p>
-        {/* <div className="category-bar">
-          <ion-icon className="category-icon" name="bicycle-outline"></ion-icon>
-          <ion-icon
-            className="category-icon"
-            name="fast-food-outline"
-          ></ion-icon>
-          <ion-icon className="category-icon" name="school-outline"></ion-icon>
-          <ion-icon className="category-icon" name="happy-outline"></ion-icon>
-        </div> */}
         <div className="cards-container">
           {randomEvents.map((event) => (
             <div className="card">
@@ -57,7 +45,7 @@ function MainPage() {
                 </Link>
                 <p className="card-location">{event.location}</p>
                 <div className="card-image-container">
-                  <img className="card-image" src={event.picture} />
+                  <img className="card-image" src={event.picture} alt="card"/>
                 </div>
               </tr>
             </div>
@@ -72,6 +60,7 @@ function MainPage() {
             backgroundSize: "cover",
             zIndex: -1,
           }}
+          alt="card"
         />
 
         <div>
@@ -79,9 +68,7 @@ function MainPage() {
         </div>
       </div>
       <div className="see-more-container">
-        <Link to="/events/list">
-          <button className="upcoming-events">Discover more events</button>
-        </Link>
+        <Link to="/events/list"><button className="upcoming-events">Discover more events</button></Link>
       </div>
     </>
   );

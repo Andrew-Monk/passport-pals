@@ -65,7 +65,6 @@ function EventsList() {
         })}
       </select>
       <div className="list-container">
-        {/* {events.filter((event) => (event.category == category)).map((event) => { */}
         {filteredEvents.map((event) => {
           return (
             <div className="list-card">
@@ -76,7 +75,7 @@ function EventsList() {
               <img
                 className="list-card-picture"
                 src={event.picture}
-                alt="card-picture"
+                alt="card"
               />
               <p>{event.category}</p>
             </div>
