@@ -38,7 +38,7 @@ function MainPage() {
         <p className="upcoming-events">Upcoming Events Around the World</p>
         <div className="cards-container">
           {randomEvents.map((event) => (
-            <div className="card">
+            <tbody className="card">
               <tr key={event.id}>
                 <Link className="card-title" to={`/events/${event.id}`}>
                   {event.event_title}
@@ -48,7 +48,7 @@ function MainPage() {
                   <img className="card-image" src={event.picture} alt="card"/>
                 </div>
               </tr>
-            </div>
+            </tbody>
           ))}
         </div>
       </div>
