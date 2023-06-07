@@ -79,7 +79,7 @@ function MainPage() {
         </div>
       </div>
       <div className="see-more-container">
-        <p className="upcoming-events">Discover events by category</p>
+        <button className="upcoming-events">Discover more events</button>
       </div>
     </>
   );
