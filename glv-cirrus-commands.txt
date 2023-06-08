@@ -21,3 +21,4 @@ glv-cloud-cli deploy -a passport-pals -i registry.gitlab.com/passportpals/module
 
 # image latest from gitlab
 registry.gitlab.com/passportpals/module3-project-gamma/passport_pals_image:latest
+
