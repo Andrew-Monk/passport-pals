@@ -33,7 +33,6 @@ class HttpError(BaseModel):
     detail: str
 
 
-
 class SignUpEvent(BaseModel):
     email: str
     event_id: str
