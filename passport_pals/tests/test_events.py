@@ -27,7 +27,7 @@ class EmptyEventQueries:
                 "payment_type": "Venmo",
                 "date": "2023-07-19T17:00:00",
                 "description": "Come enjoy the booze!",
-                "id": "647915ca20824b2b974e3f50",
+                "id": "647915ca20824b2b974e3f51",
             },
             {
                 "event_title": "Tequila Tasting",

@@ -120,7 +120,8 @@ async def event_signup(
     props = repo.collection.find_one({"_id": ObjectId(account_data["id"])})
     if "attending" not in props:
         props["attending"] = []
-    props["attending"].append(str(event))
+    if str(event) not in props["attending"]:
+        props["attending"].append(str(event))
     repo.collection.update_one(
         {"_id": ObjectId(account_data["id"])},
         {"$set": props},
