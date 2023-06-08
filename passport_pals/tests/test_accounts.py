@@ -11,20 +11,19 @@ class EmptyAccountQueries:
 
     def get(self, email):
         return {
-                "email": "test2@test2.com",
-                "language": "test2language",
-                "country": "test2country",
-                "password": "$2b$12$NwMi3NJ6jyBK4xNUt/wSp.DWnDYfVxHAfDL0zndomahFjglLpPuFW",
-                "full_name": "test2name",
-                "attending": [
-                    "647a54b1e863d505bfb88137",
-                ],
-                "hosting": [
-                    "647a640fe19ccd42b91df32e",
-                ],
-                "id": "64791e5ba56860f4ad9993ef",
-            }
-
+            "email": "test2@test2.com",
+            "language": "test2language",
+            "country": "test2country",
+            "password": "$2b$12$NwMi3NJ6jyBK4xNUt/wSp.DWnDYfVxHAfDL0zndomahFjglLpPuFW",
+            "full_name": "test2name",
+            "attending": [
+                "647a54b1e863d505bfb88137",
+            ],
+            "hosting": [
+                "647a640fe19ccd42b91df32e",
+            ],
+            "id": "64791e5ba56860f4ad9993ef",
+        }
 
 
 def test_get_account():

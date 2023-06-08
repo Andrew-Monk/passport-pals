@@ -1,0 +1,9 @@
+glv-cloud-cli deploy -a passport-pals-db -i mongo:latest -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password -m /data/db -p 27017 -x=false
+
+feb-23-et-5-passport-pals-db-service.default.svc.cluster.local
+
+glv-cloud-cli deploy -a authplay \
+  -i registry.gitlab.com/sjp19-public-resources/authentication-playground/user_service_image:7d66559f2dbcf3b640a0f338066d361a21b6838a \
+  -e SIGNING_KEY=whatever \
+  -e DATABASE_URL=postgresql://admin:password@feb-23-et-5-passport-pals-db-service.default.svc.cluster.local \
+  -e CORS_HOST=https://sjp19-public-resources.gitlab.io

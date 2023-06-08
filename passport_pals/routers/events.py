@@ -32,7 +32,7 @@ async def create_event(
     event_id = created_event.id
     props = account_repo.collection.find_one(
         {"_id": ObjectId(account_data["id"])}
-        )
+    )
     if "hosting" not in props:
         props["hosting"] = []
     props["hosting"].append(event_id)
@@ -70,7 +70,7 @@ def update_event(
     event_in: EventIn,
     response: Response,
     queries: EventQueries = Depends(),
-    account_data: dict = Depends(authenticator.try_get_current_account_data)
+    account_data: dict = Depends(authenticator.try_get_current_account_data),
 ):
     if account_data is None or "id" not in account_data:
         raise HTTPException(
@@ -89,7 +89,7 @@ async def delete_event(
     event_id: str,
     repo: EventQueries = Depends(),
     # account: dict = Depends(?????),
-    account_data: dict = Depends(authenticator.try_get_current_account_data)
+    account_data: dict = Depends(authenticator.try_get_current_account_data),
 ):
     if account_data is None or "id" not in account_data:
         raise HTTPException(

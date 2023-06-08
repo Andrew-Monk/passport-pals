@@ -1,4 +1,3 @@
-# router.py
 from fastapi import (
     Depends,
     HTTPException,
@@ -33,6 +32,7 @@ class AccountToken(Token):
 class HttpError(BaseModel):
     detail: str
 
+
 class SignUpEvent(BaseModel):
     email: str
     event_id: str
@@ -60,6 +60,7 @@ async def create_account(
     token = await authenticator.login(response, request, form, accounts)
     return AccountToken(account=account, **token.dict())
 
+
 @router.get("/api/accounts/{email}", response_model=AccountOut)
 async def get_account(
     email: str,
@@ -74,31 +75,35 @@ async def get_account(
     account = repo.get(email)
     return account
 
+
 @router.get("/token", response_model=AccountToken | None)
 async def get_token(
     request: Request,
-    account: AccountOut = Depends(authenticator.try_get_current_account_data, use_cache=False),
-    account_data: AccountQueries = Depends()
+    account: AccountOut = Depends(
+        authenticator.try_get_current_account_data, use_cache=False
+    ),
+    account_data: AccountQueries = Depends(),
 ) -> AccountToken | None:
     if authenticator.cookie_name in request.cookies:
         token_data = {
             "access_token": request.cookies[authenticator.cookie_name],
             "type": "Bearer",
-            "account": account_data.get_user_by_id(account["id"])
+            "account": account_data.get_user_by_id(account["id"]),
         }
         return AccountToken(**token_data)
+
 
 @router.put("/api/accounts")
 async def event_signup(
     signup_event: SignUpEvent,
-    account_data: dict = Depends(
-        authenticator.try_get_current_account_data
-        ),
+    account_data: dict = Depends(authenticator.try_get_current_account_data),
     event_data: EventQueries = Depends(),
     repo: AccountQueries = Depends(),
 ):
     email = repo.get(signup_event.email)
-    event_id = event_data.collection.find_one({"_id": ObjectId(signup_event.event_id)})
+    event_id = event_data.collection.find_one(
+        {"_id": ObjectId(signup_event.event_id)}
+    )
     event = event_id["_id"]
 
     if account_data is None or "id" not in account_data:
@@ -111,9 +116,7 @@ async def event_signup(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Event not found",
         )
-    props = repo.collection.find_one(
-        {"_id": ObjectId(account_data["id"])}
-        )
+    props = repo.collection.find_one({"_id": ObjectId(account_data["id"])})
     if "attending" not in props:
         props["attending"] = []
     props["attending"].append(str(event))

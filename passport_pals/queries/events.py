@@ -4,6 +4,7 @@ from .client import Queries
 from models import EventIn, EventOut
 from pymongo import ReturnDocument
 
+
 class EventQueries(Queries):
     DB_NAME = "passport_pals"
     COLLECTION = "events"
