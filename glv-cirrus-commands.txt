@@ -17,8 +17,7 @@ glv-cloud-cli deploy -a passport-pals
   -e DATABASE_URL=mongodb://admin:password@feb-23-et-5-passport-pals-db-service.default.svc.cluster.local \
   -e CORS_HOST=https://passportpals.gitlab.io
 
-glv-cloud-cli deploy -a passport-pals -i registry.gitlab.com/passportpals/module3-project-gamma/passport_pals_image:latest -e SIGNING_KEY=whatever -e DATABASE_URL=mongodb://admin:password@feb-23-et-5-passport-pals-db-service.default.svc.cluster.local -e CORS_HOST=https://passportpals.gitlab.io
+glv-cloud-cli deploy -a passport -i registry.gitlab.com/passportpals/module3-project-gamma/passport_pals_image:latest -e SIGNING_KEY=whatever -e DATABASE_URL=mongodb://admin:password@feb-23-et-5-passport-pals-db-service.default.svc.cluster.local -e CORS_HOST=https://passportpals.gitlab.io
 
 # image latest from gitlab
 registry.gitlab.com/passportpals/module3-project-gamma/passport_pals_image:latest
-
