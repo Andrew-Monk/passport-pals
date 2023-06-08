@@ -33,6 +33,7 @@ class HttpError(BaseModel):
     detail: str
 
 
+
 class SignUpEvent(BaseModel):
     email: str
     event_id: str
@@ -100,7 +101,7 @@ async def event_signup(
     event_data: EventQueries = Depends(),
     repo: AccountQueries = Depends(),
 ):
-    email = repo.get(signup_event.email)
+    repo.get(signup_event.email)
     event_id = event_data.collection.find_one(
         {"_id": ObjectId(signup_event.event_id)}
     )

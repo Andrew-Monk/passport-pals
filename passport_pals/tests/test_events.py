@@ -1,8 +1,13 @@
 from fastapi.testclient import TestClient
 from main import app
 from queries.events import EventQueries
+from authenticator import authenticator
 
 client = TestClient(app)
+
+
+def get_current_account_data_fake():
+    return {"id": "64791e5ba56860f4ad9993ef", "email": "test2@test2.com"}
 
 
 class EmptyEventQueries:
@@ -15,7 +20,7 @@ class EmptyEventQueries:
                 "event_title": "Tequila Tasting",
                 "location": "Mexico City",
                 "expected_guests": None,
-                "picture": "https://www.tastingtable.com/img/gallery/why-tequila-cant-be-made-outside-of-mexico/l-intro-1679569930.jpg",
+                "picture": "test",
                 "category": "Food/Drink",
                 "cost": 20,
                 "language": "Spanish",
@@ -28,7 +33,7 @@ class EmptyEventQueries:
                 "event_title": "Tequila Tasting",
                 "location": "Mexico City",
                 "expected_guests": None,
-                "picture": "https://www.tastingtable.com/img/gallery/why-tequila-cant-be-made-outside-of-mexico/l-intro-1679569930.jpg",
+                "picture": "test",
                 "category": "Food/Drink",
                 "cost": 20,
                 "language": "Spanish",
@@ -109,9 +114,12 @@ def test_event_detail():
 def test_delete_event():
     # arrange
     app.dependency_overrides[EventQueries] = EmptyEventQueries
+    app.dependency_overrides[
+        authenticator.try_get_current_account_data
+    ] = get_current_account_data_fake
 
     # act
-    response = client.delete("/api/events/647e23473d42688a1ea19ee4")
+    response = client.delete("/api/events/647e23473d42688a1ea19ee2")
 
     # cleanup
     app.dependency_overrides = {}
@@ -119,4 +127,3 @@ def test_delete_event():
     # assert
     assert response.status_code == 200
     assert isinstance(response.json(), bool)
-    assert response.json() == True

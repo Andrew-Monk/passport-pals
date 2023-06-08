@@ -35,7 +35,6 @@ class EventQueries(Queries):
             {"$set": props},
             return_document=ReturnDocument.AFTER,
         )
-        print("inserted event", inserted_event)
         return EventOut(**inserted_event, id=id)
 
     def delete_event(self, id: str) -> bool:

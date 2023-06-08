@@ -26,10 +26,8 @@ code {
   align-items: center;
   background-color: whitesmoke;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  /* border-bottom: 4px rgb(212, 212, 212) solid; */
   background-color: whitesmoke;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  /* border-bottom: 4px rgb(212, 212, 212) solid; */
 }
 
 .nav-title-container {
@@ -170,13 +168,9 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: rgb(244, 244, 244);
-  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.705); */
   background: rgba(245, 245, 245, 0.25);
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  /* background-color: rgb(244, 244, 244);
-  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.705); */
   background: rgba(245, 245, 245, 0.25);
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
