@@ -1,3 +1,6 @@
+<!-- PLEASE NOTE INSTRUCTORS:
+In the gitlab, see large amounts of journals being committed at once rather than on a daily basis because a combination of git merge/conflict/pull confusion and because I had another file I was recording the journals in. Journals were made on a daily basis -->
+
 ## Tuesday, June 6th
 
 We had to make a pydantic model in with email and account_id because the url could not process the @ symbol (when we were trying to make our account detail list refresh without logging in and out). It was a bug in JWTdown (according to Andrew). I had added a bunch of CSS then we painfully merged it. All the main functionality should be good now.
