@@ -15,7 +15,7 @@ function Nav() {
   useEffect(() => {
     if (token) {
       const handleFetch = async () => {
-        const accountUrl = "http://localhost:8000/token";
+        const accountUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/token`;
         const response = await fetch(accountUrl, {
           credentials: "include",
         }).then((response) => response.json());

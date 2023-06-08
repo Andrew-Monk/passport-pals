@@ -11,7 +11,7 @@ function AccountDetail() {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const eventsUrl = "http://localhost:8000/api/events/";
+      const eventsUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/events/`;
       const response = await fetch(eventsUrl);
       if (response.ok) {
         const responseData = await response.json();
@@ -21,7 +21,7 @@ function AccountDetail() {
     };
 
     const handleFetch = async () => {
-      const accountUrl = "http://localhost:8000/token";
+      const accountUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/token`;
       const response = await fetch(accountUrl, {
         credentials: "include",
       }).then((response) => response.json());
