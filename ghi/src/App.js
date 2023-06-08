@@ -15,8 +15,8 @@ function App() {
   const basename = process.env.PUBLIC_URL.replace(domain, "");
   return (
     <div>
-      <BrowserRouter>
-        <AuthProvider basename={basename}>
+      <BrowserRouter basename={basename}>
+        <AuthProvider baseUrl={process.env.REACT_APP_PASSPORT_PALS_API_HOST}>
           <Nav />
           <Routes>
             <Route path="/" element={<MainPage />} />
