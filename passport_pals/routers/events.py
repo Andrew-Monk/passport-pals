@@ -18,7 +18,6 @@ async def create_event(
 ):
     print(account_data)
     created_event = repo.create(event)
-    # try:
     if account_data is None or "id" not in account_data:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -40,9 +39,6 @@ async def create_event(
         {"_id": ObjectId(account_data["id"])},
         {"$set": props},
     )
-    # except Exception as e:
-    #     print("e:", e)
-    #     raise HTTPException(status_code=500, detail="Internal server error")
     return created_event
 
 
@@ -98,6 +94,3 @@ async def delete_event(
         )
     repo.delete_event(id=event_id)
     return True
-
-
-# make a new router to add event id, remove event id, add hosted event id, remove hosted event id, add attendee to event, remove attendee from event

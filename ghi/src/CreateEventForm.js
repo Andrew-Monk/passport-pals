@@ -217,19 +217,6 @@ function CreateEventForm() {
                   })}
                 </select>
               </div>
-              {/* <div className="form-floating mb-3">
-                <input
-                  value={category}
-                  onChange={handleCategoryChange}
-                  placeholder="category"
-                  name="category"
-                  required
-                  type="string"
-                  id="category"
-                  className="form-control"
-                />
-                <label htmlFor="category">Category</label>
-              </div> */}
               <div className="form-floating mb-3">
                 <input
                   value={cost}

@@ -49,6 +49,3 @@ class AccountQueries(Queries):
             return_document=ReturnDocument.AFTER,
         )
         return AccountOut(**updated_account, id=id)
-
-
-# account id, event id, hsoting/attending
