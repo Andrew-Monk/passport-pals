@@ -1,2 +1,10 @@
 [flake8]
-exclude = ghi,docs,journals,sample_service/migrations
+exclude=**/settings.py,**/migrations/**
+ignore=E402,W503
+
+lint-job:
+  image: python:3-bullseye
+  stage: test
+  script:
+    - pip install flake8
+    - flake8 passport_pals
