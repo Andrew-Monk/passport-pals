@@ -147,6 +147,6 @@ deploy-passport-pals-image:
   stage: deploy
   image: registry.gitlab.com/galvanize-inc/foss/glv-cloud-cli:latest
   script:
-    - glv-cloud-cli reset -a ${PASSPORT_PALS_API_HOST} -t ${CIRRUS_TOKEN}
+    - glv-cloud-cli reset -a ${PASSPORT_PALS_API} -t ${CIRRUS_TOKEN}
   only:
     - main
