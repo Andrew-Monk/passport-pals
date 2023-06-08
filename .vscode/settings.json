@@ -3,7 +3,7 @@
   "python.formatting.provider": "none",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["passportpals"],
+  "cSpell.words": ["passportpals", "pytest", "WEBSERVICE"],
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   }

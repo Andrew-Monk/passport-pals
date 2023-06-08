@@ -11,10 +11,12 @@ import UserSignup from "./UserSignup";
 import AccountDetail from "./AccountDetail";
 
 function App() {
+  const domain = /https:\/\/[^/]+/;
+  const basename = process.env.PUBLIC_URL.replace(domain, "");
   return (
     <div>
       <BrowserRouter>
-        <AuthProvider baseUrl="http://localhost:8000">
+        <AuthProvider basename={basename}>
           <Nav />
           <Routes>
             <Route path="/" element={<MainPage />} />
