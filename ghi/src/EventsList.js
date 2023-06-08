@@ -39,7 +39,6 @@ function EventsList() {
 
   const handleCategoryChange = (event) => {
     const value = event.target.value;
-    console.log(value);
     setCategory(value);
   };
 
