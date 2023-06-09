@@ -1,17 +1,17 @@
 # Passport Pals
 
-Stesha Carle
-Rebecca Tom
-Maggie Gallagher
-Andrew Monk
+Stesha Carle<br>
+Rebecca Tom<br>
+Maggie Gallagher<br>
+Andrew Monk<br>
 
 Passport Pals - Make Friends Across Borders
 
 Design
 
-[API design](apidesign.md)
-[Data model](datamodels.md)
-[GHI](ghi.md)
+[API design](apidesign.md)<br>
+[Data model](datamodels.md)<br>
+[GHI](ghi.md)<br>
 
 ## Intended market
 
