@@ -123,12 +123,12 @@ function CreateEventForm() {
 
   return (
     <div className="row">
-      <div className="offset-3 col-6">
+      <div className="offset-4 col-4">
         <div className="shadow p-4 mt-4 text-dark">
           <h1>Host an Event!</h1>
           <form onSubmit={handleSubmit}>
             <div className="form-floating mb-4">
-              <div className="form-floating mb-0">
+              <div className="form-floating mb-3">
                 <input
                   value={title}
                   onChange={handleTitleChange}
@@ -141,7 +141,7 @@ function CreateEventForm() {
                 />
                 <label htmlFor="vin">Title</label>
               </div>
-              <div className="form-floating mb-0">
+              <div className="form-floating mb-3">
                 <input
                   value={location}
                   onChange={handleLocationChange}
@@ -154,7 +154,7 @@ function CreateEventForm() {
                 />
                 <label htmlFor="location">Location</label>
               </div>
-              <div className="form-floating mb-0">
+              <div className="form-floating mb-3">
                 <input
                   value={date}
                   onChange={handleDateChange}
@@ -167,7 +167,7 @@ function CreateEventForm() {
                 />
                 <label htmlFor="date">Date</label>
               </div>
-              <div className="form-floating mb-0">
+              <div className="form-floating mb-3">
                 <input
                   value={time}
                   onChange={handleTimeChange}
