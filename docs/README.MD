@@ -1,4 +1,4 @@
-### Passport Pals
+# Passport Pals
 
 Stesha Carle
 Rebecca Tom
