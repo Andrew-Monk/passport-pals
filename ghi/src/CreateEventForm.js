@@ -122,12 +122,13 @@ function CreateEventForm() {
 
   return (
     <div className="row">
-      <div className="offset-3 col-6">
-        <div className="shadow p-4 mt-4 text-dark">
-          <h1>Host an Event!</h1>
+      <div className="offset-4 col-4">
+        <div className="mt-4 text-dark">
+          <h1 className="upcoming-events">Host an Event!</h1>
+
           <form onSubmit={handleSubmit}>
             <div className="form-floating mb-4">
-              <div className="form-floating mb-0">
+              <div className="form-floating mb-3">
                 <input
                   value={title}
                   onChange={handleTitleChange}
@@ -140,7 +141,7 @@ function CreateEventForm() {
                 />
                 <label htmlFor="title">Title</label>
               </div>
-              <div className="form-floating mb-0">
+              <div className="form-floating mb-3">
                 <input
                   value={location}
                   onChange={handleLocationChange}
@@ -153,7 +154,7 @@ function CreateEventForm() {
                 />
                 <label htmlFor="location">Location</label>
               </div>
-              <div className="form-floating mb-0">
+              <div className="form-floating mb-3">
                 <input
                   value={date}
                   onChange={handleDateChange}
@@ -166,7 +167,7 @@ function CreateEventForm() {
                 />
                 <label htmlFor="date">Date</label>
               </div>
-              <div className="form-floating mb-0">
+              <div className="form-floating mb-3">
                 <input
                   value={time}
                   onChange={handleTimeChange}
@@ -199,7 +200,8 @@ function CreateEventForm() {
                   required
                   name="category"
                   id="category"
-                  className="form-select"
+                  className="form-select mb-3 pt-3 pb-3"
+
                 >
                   <option value="">Choose a Category...</option>
                   {categories.map((category) => {
@@ -268,9 +270,16 @@ function CreateEventForm() {
               <button className="btn btn-primary">Host!</button>
             </div>
           </form>
+          <div>
+            <img src="https://i.imgur.com/XYVD23h.jpg"
+            className="host-event"
+            alt="card"
+            />
+          </div>
         </div>
       </div>
     </div>
+
   );
 }
 

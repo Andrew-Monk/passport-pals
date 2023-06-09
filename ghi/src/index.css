@@ -30,6 +30,7 @@ code {
 .nav-title-container {
   display: flex;
   align-items: center;
+  z-index: 100;
 }
 
 .nav-title {
@@ -39,11 +40,6 @@ code {
   padding-left: 20px;
   color: rgb(255, 156, 27);
   text-shadow: 1px 1px 2px #818181;
-}
-
-.logo-icon {
-  height: 40px;
-  width: 40px;
 }
 
 .logo-icon {
@@ -64,6 +60,7 @@ code {
   border: solid rgb(212, 212, 212) 1px;
   border-radius: 50px;
   box-shadow: 0px 3px 7px 3px rgba(194, 194, 194, 0.705);
+  z-index: 100;
 }
 
 .navlink {
@@ -74,24 +71,6 @@ code {
 
 .navlink:hover {
   color: rgb(137, 137, 137);
-}
-
-.nav-user {
-  padding: 20px;
-  margin: 20px;
-  display: inline;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.nav-user {
-  padding: 20px;
-  margin: 20px;
-  display: inline;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .nav-user {
@@ -123,6 +102,66 @@ code {
   opacity: 90%;
 }
 
+.event-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 90%;
+  overflow: hidden;
+  background-image: "https://i.imgur.com/Zn3DfcJ.jpg";
+  pointer-events: none;
+  user-select: none;
+}
+
+.host-event {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 90%;
+  overflow: hidden;
+  background-image: "https://i.imgur.com/XYVD23h.jpg";
+  pointer-events: none;
+  user-select: none;
+}
+
+.signup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 90%;
+  overflow: hidden;
+  background-image: "https://i.imgur.com/TDkZ7H2.jpg";
+  pointer-events: none;
+  user-select: none;
+}
+
+.account-details {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 90%;
+  overflow: hidden;
+  background-image: "https://i.imgur.com/7KFlFe1.jpg";
+  pointer-events: none;
+  user-select: none;
+}
+
 .card-section {
   margin-top: 20px;
   display: grid;
@@ -131,6 +170,7 @@ code {
   padding-right: 50px;
   justify-content: center;
 }
+
 .upcoming-events {
   font-weight: 600;
   color: rgb(244, 244, 244);
@@ -144,6 +184,75 @@ code {
   box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
   backdrop-filter: blur(4px);
   background: rgba(255, 255, 255, 0.25);
+}
+
+.account {
+  font-weight: 600;
+  color: rgb(244, 244, 244);
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 2px #363535;
+  border-radius: 40px;
+  padding: 40px;
+  border: solid rgb(212, 212, 212) 1px;
+  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  display: inline-block;
+}
+
+.signup-form {
+  font-weight: 600;
+  color: rgb(244, 244, 244);
+  text-align: center;
+  font-size: 25px;
+  /* margin-bottom: 40px; */
+  text-shadow: 1px 1px 2px #363535;
+  /* border-radius: 40px; */
+  padding: 40px;
+  border: solid rgb(212, 212, 212) 1px;
+  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  z-index: -1;
+}
+
+.signup-header {
+  font-weight: 600;
+  color: rgb(244, 244, 244);
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px #2b2a2a;
+  border-radius: 40px;
+  padding: 20px;
+  border: solid rgb(212, 212, 212) 1px;
+  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  z-index: -1;
+}
+
+.account-container {
+  display: flex;
+  justify-content: center;
+}
+
+.account-two {
+  font-weight: 600;
+  color: rgb(244, 244, 244);
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px #363535;
+  border-radius: 40px;
+  padding: 2px;
+  border: solid rgb(212, 212, 212) 1px;
+  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  display: inline-block;
 }
 
 .cards-container {
@@ -179,19 +288,15 @@ code {
   color: rgb(43, 43, 43);
   text-align: center;
 }
+
 .card-image-container {
   overflow: hidden;
   height: 200px;
   width: 200px;
 }
+
 .card-image {
   box-shadow: 0px 3px 7px 3px rgba(217, 217, 217, 0.705);
-}
-
-.hero-image {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
 }
 
 .list-container {
@@ -202,6 +307,16 @@ code {
   margin: 30px;
 }
 
+.account-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 30px;
+  column-gap: 30px;
+  margin: 30px;
+  margin-top: 1px;
+  margin-bottom: 70px;
+}
+
 .list-card {
   box-shadow: 0px 3px 7px 3px rgba(217, 217, 217, 0.705);
   padding: 20px;
@@ -210,6 +325,9 @@ code {
   overflow: hidden;
   height: 350px;
   align-items: center;
+  background: rgba(245, 245, 245, 0.25);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .list-card-picture {
@@ -219,7 +337,6 @@ code {
   display: flex;
   justify-content: center;
 }
-
 .detail-header-container {
 }
 
@@ -317,4 +434,13 @@ code {
   text-decoration: none;
   color: whitesmoke;
   font-weight: 800;
+}
+.category-list {
+  border-radius: 100px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: rgba(245, 245, 245, 0.25);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0px 3px 7px 3px rgba(217, 217, 217, 0.705);
 }
