@@ -14,14 +14,15 @@ class EventIn(BaseModel):
     payment_type: str
     date: datetime
     description: str
-    #host: str
 
 
 class EventOut(EventIn):
     id: str
 
+
 class EventList(BaseModel):
     events: List[EventOut]
+
 
 class AccountIn(BaseModel):
     email: str
@@ -31,6 +32,7 @@ class AccountIn(BaseModel):
     full_name: str | None
     attending: Optional[list]
     hosting: Optional[list]
+
 
 class AccountOut(AccountIn):
     id: str

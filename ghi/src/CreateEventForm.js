@@ -89,7 +89,7 @@ function CreateEventForm() {
     data.language = language;
     data.description = description;
 
-    const createEventUrl = "http://localhost:8000/api/events";
+    const createEventUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/events`;
     const fetchConfig = {
       method: "post",
       body: JSON.stringify(data),
@@ -116,7 +116,7 @@ function CreateEventForm() {
 
   useEffect(() => {
     const handleFetch = async () => {
-      const accountUrl = "http://localhost:8000/token";
+      const accountUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/token`;
       const response = await fetch(accountUrl, {
         credentials: "include",
       }).then((response) => response.json());
@@ -217,19 +217,6 @@ function CreateEventForm() {
                   })}
                 </select>
               </div>
-              {/* <div className="form-floating mb-3">
-                <input
-                  value={category}
-                  onChange={handleCategoryChange}
-                  placeholder="category"
-                  name="category"
-                  required
-                  type="string"
-                  id="category"
-                  className="form-control"
-                />
-                <label htmlFor="category">Category</label>
-              </div> */}
               <div className="form-floating mb-3">
                 <input
                   value={cost}
