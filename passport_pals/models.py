@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import List, Optional
 from datetime import datetime
 
@@ -9,7 +9,7 @@ class EventIn(BaseModel):
     expected_guests: Optional[list]
     picture: str
     category: str
-    cost: int
+    cost: float
     language: str
     payment_type: str
     date: datetime
@@ -25,7 +25,7 @@ class EventList(BaseModel):
 
 
 class AccountIn(BaseModel):
-    email: str
+    email: EmailStr
     language: str | None
     country: str | None
     password: str

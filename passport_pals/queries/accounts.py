@@ -1,6 +1,6 @@
 from .client import Queries
 from models import AccountIn, AccountOut
-from pymongo.errors import DuplicateKeyError
+# from pymongo.errors import DuplicateKeyError
 from pymongo import ReturnDocument
 from bson.objectid import ObjectId
 
@@ -26,12 +26,12 @@ class AccountQueries(Queries):
         props["attending"] = []
         props["hosting"] = []
 
-        try:
-            self.collection.insert_one(props)
-        except DuplicateKeyError:
+        if self.collection.find_one({"email": props["email"]}):
             raise DuplicateAccountError()
+        self.collection.insert_one(props)
         props["id"] = str(props["_id"])
         return AccountOut(**props)
+
 
     def get_user_by_id(self, id: str) -> AccountOut:
         props = self.collection.find_one({"_id": ObjectId(id)})
