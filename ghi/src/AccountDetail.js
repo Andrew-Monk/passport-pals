@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
+import useAuthContext from "@galvanize-inc/jwtdown-for-react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function AccountDetail() {
   const [accountData, setAccountData] = useState({});
+  const { fetchWithCookie } = useToken();
   const [events, setEvents] = useState([]);
   const { token } = useToken();
   const navigate = useNavigate();
@@ -61,7 +63,6 @@ function AccountDetail() {
                   </div>
                 );
               }
-              return null;
             })}
         </div>
       <h2 className="account-two">Events You're Attending!</h2>
@@ -86,7 +87,6 @@ function AccountDetail() {
                   </div>
                 );
               }
-              return null;
             })}
         </div>
       <div>
