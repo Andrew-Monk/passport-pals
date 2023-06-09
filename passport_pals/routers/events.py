@@ -40,7 +40,7 @@ async def create_event(
     return created_event
 
 
-@router.get("/api/events/{event_id}/", response_model=EventOut)
+@router.get("/api/events/{event_id}", response_model=EventOut)
 async def event_detail(
     event_id: str,
     response: Response,
