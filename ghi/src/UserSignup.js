@@ -32,11 +32,12 @@ const UserSignup = () => {
   };
 
   return (
-    <div className="card text-bg-light mb-3">
-      <h5 className="card-header">Sign Up</h5>
-      <div className="card-body">
+    <div className="row">
+    <div className="offset-4 col-4">
+    <div className="mt-4 text-dark"></div>
+      <h1 className="signup-header">Sign Up</h1>
         <form onSubmit={(e) => handleRegistration(e)}>
-          <div className="mb-3">
+          <div className="mb-3 row">
             <label className="form-label">Email</label>
             <input
               name="email"
@@ -95,6 +96,12 @@ const UserSignup = () => {
             <input className="btn btn-primary" type="submit" value="Register" />
           </div>
         </form>
+        <div>
+            <img src="https://i.imgur.com/TDkZ7H2.jpg"
+            className="host-event"
+            alt="card"
+            />
+          </div>
       </div>
     </div>
   );

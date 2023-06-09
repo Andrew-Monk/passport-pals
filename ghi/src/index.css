@@ -133,6 +133,21 @@ code {
   user-select: none;
 }
 
+.signup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 90%;
+  overflow: hidden;
+  background-image: "https://i.imgur.com/TDkZ7H2.jpg";
+  pointer-events: none;
+  user-select: none;
+}
+
 .account-details {
   position: fixed;
   top: 0;
@@ -186,6 +201,38 @@ code {
   backdrop-filter: blur(4px);
   background: rgba(255, 255, 255, 0.25);
   display: inline-block;
+}
+
+.signup-form {
+  font-weight: 600;
+  color: rgb(244, 244, 244);
+  text-align: center;
+  font-size: 25px;
+  /* margin-bottom: 40px; */
+  text-shadow: 1px 1px 2px #363535;
+  /* border-radius: 40px; */
+  padding: 40px;
+  border: solid rgb(212, 212, 212) 1px;
+  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  z-index: -1;
+}
+
+.signup-header {
+  font-weight: 600;
+  color: rgb(244, 244, 244);
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px #2b2a2a;
+  border-radius: 40px;
+  padding: 20px;
+  border: solid rgb(212, 212, 212) 1px;
+  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  z-index: -1;
 }
 
 .account-container {
