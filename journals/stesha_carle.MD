@@ -1,10 +1,16 @@
 ## Journals
 
 
+## 6/9
+*Finished deployment, worked on CSS
+
+Met with Andrew, confirmed that we have successfully deployed, just seems as though we have hit the quota, so until that is resolved, we won't see our full site.  Was able to help other groups put in CI/CD variables for their deployment.  I updated the CSS on the login page and added a link to the sign up page.  I also created a redirect from our logo to the home page.  Feeling accomplished with what we've done!
+
+
 ## 6/8
 *Started deployment, updated unit tests
 
-When we added our protected backends, our tests were no longer passing because they were missing the authenticator piece.  Once we added that, the passed
+When we added our protected backends, our tests were no longer passing because they were missing the authenticator piece.  Once we added that, they passed.  We started and I believe finished deployment.  Most of our errors were coming from needing CI/CD variables.  We have a front end successfully showing at: https://passportpals.gitlab.io/module3-project-gamma/, which shows that we are building our image properly.  We do have missing backend, but not receiving an error msg (like 502).  We put a return of Hello World in our main.py and still not showing that. Will meet with Andrew tomorrow to troubleshoot some more.
 
 ## 6/7
 * created unit tests, added more protected backends
