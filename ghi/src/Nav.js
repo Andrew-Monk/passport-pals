@@ -30,7 +30,11 @@ function Nav() {
       <div className="#">
         <div className="nav">
           <div className="nav-title-container">
-            <p className="nav-title">PassportPals</p>
+            <li>
+              <NavLink className="navlink" to="/">
+                <p className="nav-title">PassportPals</p>
+              </NavLink>
+            </li>
           </div>
           {token ? (
             <div className="navlinks">
