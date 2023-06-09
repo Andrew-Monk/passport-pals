@@ -1,5 +1,18 @@
-<!-- PLEASE NOTE INSTRUCTORS:
-In the gitlab, see large amounts of journals being committed at once rather than on a daily basis because a combination of git merge/conflict/pull confusion and because I had another file I was recording the journals in. Journals were made on a daily basis -->
+# Please Note Instructors!
+
+### In the gitlab, see large amounts of journals being committed at once rather than on a daily basis because a combination of git merge/conflict/pull confusion and because I had another file I was recording the journals in. Journals were made on a daily basis
+
+## Friday, June 9th
+
+Our project seems to be deployed but only the frontend, not the backend. Apparently it's because the quota on Google or Cirrus is not high enough. And Andrew said we might just have to wait for it to be deployed. Also, we met with Candice instructor and demoed our project and she liked it.
+
+## Thursday, June 8th
+
+We were working on deployment all day today, and I also wrote the entire README and docs. We were unable to solve deployment because Andrew is busy the rest of the day and said he may be able to meet us tmrw. We have part of the deployment tests passing but not all of them.
+
+## Wednesday, June 7th
+
+We worked more on CSS and also fixed a bunch of errors that were in our console because we had to fix those before deployment could run. Tomorrow we will work on deployment and we hope to meet with Andrew to do so.
 
 ## Tuesday, June 6th
 
@@ -27,9 +40,15 @@ We added a bunch of multiple/features/components/forms by splitting off into pai
 
 ## Friday, May 26th
 
+We worked on the sign up page with Andrew while Maggie and Stesha worked on the categories. At the end of the day we met up and explained what we did and both of our functionalities work.
+
 ## Thursday, May 25th
 
+Finally seem to have working endpoints, so I think we can start working on components. We made a bunch of .js files and kind of wireframed them out and put them in our App.js so that they can be built upon.
+
 ## Wednesday, May 24th
+
+We continued to work on finishing the rest of our endpoints, which took a long time because we had to make sure the queries and routers had all the write variables in the right place. Tomorrow will continue working on endpoints.
 
 ## Tuesday, May 23rd
 
