@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   { value: "Food & Drink", label: "Food & Drink" },
@@ -90,7 +89,7 @@ function CreateEventForm() {
     data.language = language;
     data.description = description;
 
-    const createEventUrl = "http://localhost:8000/api/events";
+    const createEventUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/events`;
     const fetchConfig = {
       method: "post",
       body: JSON.stringify(data),
@@ -116,11 +115,17 @@ function CreateEventForm() {
   };
 
   useEffect(() => {
-    if (!token) {
-      navigate("/login");
-    }
-  }, [token, navigate]);
-
+    const handleFetch = async () => {
+      const accountUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/token`;
+      const response = await fetch(accountUrl, {
+        credentials: "include",
+      }).then((response) => response.json());
+      if (response == null) {
+        navigate("/login");
+      }
+    };
+    handleFetch();
+  }, [navigate, token]);
   return (
     <div className="row">
       <div className="offset-4 col-4">
@@ -139,7 +144,7 @@ function CreateEventForm() {
                   id="title"
                   className="form-control"
                 />
-                <label htmlFor="vin">Title</label>
+                <label htmlFor="title">Title</label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -194,28 +199,24 @@ function CreateEventForm() {
                 <label htmlFor="picture">Picture</label>
               </div>
               <div>
-                <select onChange={handleCategoryChange} value={category} required name="category" id="category" className="form-select">
+                <select
+                  onChange={handleCategoryChange}
+                  value={category}
+                  required
+                  name="category"
+                  id="category"
+                  className="form-select"
+                >
                   <option value="">Choose a Category...</option>
                   {categories.map((category) => {
-                    return(
-                        <option key={category.value} value={category.value}>{category.label}</option>
+                    return (
+                      <option key={category.value} value={category.value}>
+                        {category.label}
+                      </option>
                     );
                   })}
                 </select>
               </div>
-              {/* <div className="form-floating mb-3">
-                <input
-                  value={category}
-                  onChange={handleCategoryChange}
-                  placeholder="category"
-                  name="category"
-                  required
-                  type="string"
-                  id="category"
-                  className="form-control"
-                />
-                <label htmlFor="category">Category</label>
-              </div> */}
               <div className="form-floating mb-3">
                 <input
                   value={cost}

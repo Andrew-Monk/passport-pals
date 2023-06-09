@@ -4,6 +4,7 @@ from .client import Queries
 from models import EventIn, EventOut
 from pymongo import ReturnDocument
 
+
 class EventQueries(Queries):
     DB_NAME = "passport_pals"
     COLLECTION = "events"
@@ -34,7 +35,6 @@ class EventQueries(Queries):
             {"$set": props},
             return_document=ReturnDocument.AFTER,
         )
-        print("inserted event", inserted_event)
         return EventOut(**inserted_event, id=id)
 
     def delete_event(self, id: str) -> bool:

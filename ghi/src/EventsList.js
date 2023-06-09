@@ -15,9 +15,8 @@ function EventsList() {
   const [filteredEvents, setFilteredEvents] = useState([]);
 
   async function fetchEvents() {
-    const eventsUrl = "http://localhost:8000/api/events/";
+    const eventsUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/events`;
     const response = await fetch(eventsUrl);
-    console.log(response);
     if (response.ok) {
       const responseData = await response.json();
       const eventsData = responseData.events;
@@ -40,7 +39,6 @@ function EventsList() {
 
   const handleCategoryChange = (event) => {
     const value = event.target.value;
-    console.log(value);
     setCategory(value);
   };
 
@@ -65,15 +63,18 @@ function EventsList() {
         })}
       </select>
       <div className="list-container">
-        {/* {events.filter((event) => (event.category == category)).map((event) => { */}
         {filteredEvents.map((event) => {
           return (
-            <div className="list-card">
+            <div key={event.id} className="list-card">
               <p>
                 <Link to={`/events/${event.id}`}>{event.event_title}</Link>
               </p>
               <p>{event.location}</p>
-              <img className="list-card-picture" src={event.picture} />
+              <img
+                className="list-card-picture"
+                src={event.picture}
+                alt="card"
+              />
               <p>{event.category}</p>
             </div>
           );

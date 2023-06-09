@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { Link } from "react-router-dom";
@@ -6,24 +6,21 @@ import { Link } from "react-router-dom";
 function EventDetail() {
   const { event_id } = useParams();
   const [eventDetails, setEventDetails] = useState([]);
-  const [accountData, setAccountData] = useState({});
   const { fetchWithCookie, token } = useToken();
 
-  async function fetchEvent() {
-    const eventUrl = `http://localhost:8000/api/events/${event_id}/`;
+  const fetchEvent = useCallback(async () => {
+    const eventUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/events/${event_id}`;
     const response = await fetch(eventUrl);
-    console.log(response);
     if (response.ok) {
       const responseData = await response.json();
       const eventData = responseData;
-      console.log(eventData);
       setEventDetails(eventData);
     }
-  }
+  }, [event_id]);
 
   useEffect(() => {
     fetchEvent();
-  }, [event_id]);
+  }, [fetchEvent]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -31,7 +28,7 @@ function EventDetail() {
       `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/token`
     );
     const accountEmail = accountResponse.account.email;
-    const signUpUrl = `http://localhost:8000/api/accounts`;
+    const signUpUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/accounts`;
 
     const data = {};
     data.event_id = event_id;
@@ -46,7 +43,7 @@ function EventDetail() {
       credentials: "include",
     };
 
-    const response = await fetch(signUpUrl, fetchConfig);
+    await fetch(signUpUrl, fetchConfig);
 
     alert("You're signed up!");
   };
@@ -56,7 +53,7 @@ function EventDetail() {
       <div>
         <h1>{eventDetails.event_title}</h1>
         <h3>{eventDetails.location}</h3>
-        <img src={eventDetails.picture} alt="event image" />
+        <img src={eventDetails.picture} alt="event" />
       </div>
       <div>
         <h2>Event Details</h2>

@@ -15,14 +15,12 @@ function Nav() {
   useEffect(() => {
     if (token) {
       const handleFetch = async () => {
-        const accountUrl = "http://localhost:8000/token";
+        const accountUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/token`;
         const response = await fetch(accountUrl, {
           credentials: "include",
         }).then((response) => response.json());
-        console.log(response);
         setAccountData(response.account);
       };
-
       handleFetch();
     }
   }, [token]);
@@ -57,7 +55,7 @@ function Nav() {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="navlink" to="/" onClick={logout}>
+                <NavLink className="navlink" to="/" onClick={handleLogout}>
                   Logout
                 </NavLink>
               </li>

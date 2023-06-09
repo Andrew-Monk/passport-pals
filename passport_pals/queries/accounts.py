@@ -1,4 +1,3 @@
-from fastapi import FastAPI
 from .client import Queries
 from models import AccountIn, AccountOut
 from pymongo.errors import DuplicateKeyError
@@ -49,6 +48,3 @@ class AccountQueries(Queries):
             return_document=ReturnDocument.AFTER,
         )
         return AccountOut(**updated_account, id=id)
-
-
-# account id, event id, hsoting/attending
