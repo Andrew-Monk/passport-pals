@@ -11,6 +11,8 @@ def get_current_account_data_fake():
 
 
 class EmptyEventQueries:
+    # Stesha's test - list events, Maggie's test - event detail
+    # Andrew's test- delete event, Rebecca's test - get account (in test_accounts.py)
     def list_events(self):
         return []
 
@@ -110,7 +112,6 @@ def test_event_detail():
     assert response.json()["event_title"] == "1"
     assert response.json()["language"] == "string"
 
-
 def test_delete_event():
     # arrange
     app.dependency_overrides[EventQueries] = EmptyEventQueries
@@ -127,3 +128,4 @@ def test_delete_event():
     # assert
     assert response.status_code == 200
     assert isinstance(response.json(), bool)
+    assert response.json() == True
