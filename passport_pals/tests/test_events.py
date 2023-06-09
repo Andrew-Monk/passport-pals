@@ -10,6 +10,11 @@ from authenticator import authenticator
 
 client = TestClient(app)
 
+# Stesha's test - list events
+# Maggie's test - event detail
+# Andrew's test- delete event
+# Rebecca's test - get account (in test_accounts.py)
+
 
 def get_current_account_data_fake():
     return {"id": "64791e5ba56860f4ad9993ef", "email": "test2@test2.com"}
