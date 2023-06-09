@@ -49,28 +49,50 @@ function EventDetail() {
   };
 
   return (
-    <>
-      <div>
-        <h1>{eventDetails.event_title}</h1>
-        <h3>{eventDetails.location}</h3>
-        <img src={eventDetails.picture} alt="event" />
+    <div className="event-detail-all">
+      <div className="detail-header-container">
+        <h1 className="event-detail-title">{eventDetails.event_title}</h1>
+        <h3 className="event-detail-location">{eventDetails.location}</h3>
+        <img
+          className="event-detail-image"
+          src={eventDetails.picture}
+          alt="event"
+        />
       </div>
       <div>
-        <h2>Event Details</h2>
-        <p>{eventDetails.description}</p>
-        <p>{eventDetails.date}</p>
-        <p>{eventDetails.language}</p>
-        <p>{eventDetails.cost}</p>
-        <p>{eventDetails.payment_type}</p>
+        <div className="text-modal">
+          <h2 className="event-details">Event Details</h2>
+        </div>
+        <p className="detail description">{eventDetails.description}</p>
+        <div className="detail-container">
+          <p className="detail date">
+            <strong>When:</strong> {eventDetails.date}
+          </p>
+          <p className="detail language">
+            <strong>Language:</strong> {eventDetails.language}
+          </p>
+          <p className="detail cost">
+            <strong>Cost:</strong> {eventDetails.cost}
+          </p>
+          <p className="detail payment-type">
+            <strong>Payment Type:</strong> {eventDetails.payment_type}
+          </p>
+        </div>
       </div>
       {token ? (
-        <div>
-          <button onClick={handleSubmit}>Sign up!</button>
+        <div className="login-join">
+          <button className="login-join-button" onClick={handleSubmit}>
+            Sign up!
+          </button>
         </div>
       ) : (
-        <Link to="/login">Login to sign up!</Link>
+        <div className="login-join">
+          <Link className="login-join-link" to="/login">
+            Login to sign up!
+          </Link>
+        </div>
       )}
-    </>
+    </div>
   );
 }
 
