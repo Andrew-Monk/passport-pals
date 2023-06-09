@@ -115,17 +115,11 @@ function CreateEventForm() {
   };
 
   useEffect(() => {
-    const handleFetch = async () => {
-      const accountUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/token`;
-      const response = await fetch(accountUrl, {
-        credentials: "include",
-      }).then((response) => response.json());
-      if (response == null) {
-        navigate("/login");
-      }
-    };
-    handleFetch();
-  }, [navigate, token]);
+    if (!token) {
+      navigate("/login");
+    }
+  }, [token, navigate]);
+
   return (
     <div className="row">
       <div className="offset-4 col-4">

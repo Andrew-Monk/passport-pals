@@ -15,6 +15,11 @@ def get_current_account_data_fake():
     return {"id": "64791e5ba56860f4ad9993ef", "email": "test2@test2.com"}
 
 
+
+def get_current_account_data_fake():
+    return {"id": "64791e5ba56860f4ad9993ef", "email": "test2@test2.com"}
+
+
 class EmptyEventQueries:
     def list_events(self):
         return []
