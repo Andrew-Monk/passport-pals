@@ -38,49 +38,34 @@ function AccountDetail() {
 
   return (
     <>
-      <div>
-        <h1>Welcome, {accountData.full_name}!</h1>
+      <div className="account-container">
+        <h1 className="account">Welcome, {accountData.full_name}!</h1>
       </div>
-      <h2>Events</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Location</th>
-            <th>Picture</th>
-          </tr>
-        </thead>
-        <tbody>
+        <h2 className="account-two">Events You're Hosting!</h2>
+        <div className="account-list">
           {accountData.hosting &&
             accountData.hosting.map((eventId) => {
               const hostedEvent = events.find((event) => event.id === eventId);
               if (hostedEvent) {
                 return (
-                  <tr key={hostedEvent.id}>
-                    <td>
-                      <Link to={`/events/${hostedEvent.id}`}>
+                  <div key={hostedEvent.id} className="card">
+                    <div>
+                      <Link className="card-title" to={`/events/${hostedEvent.id}`}>
                         {hostedEvent.event_title}
                       </Link>
-                    </td>
-                    <td>{hostedEvent.location}</td>
-                    <td>{hostedEvent.picture}</td>
-                  </tr>
+                    </div>
+                    <div>{hostedEvent.location}</div>
+                    <div className="card-image-container">
+                      <img className="card-image" src={hostedEvent.picture} alt="card" />
+                    </div>
+                  </div>
                 );
               }
               return null;
             })}
-        </tbody>
-      </table>
-      <h2>Your Upcoming Events</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Location</th>
-            <th>Picture</th>
-          </tr>
-        </thead>
-        <tbody>
+        </div>
+      <h2 className="account-two">Events You're Attending!</h2>
+        <div className="account-list">
           {accountData.attending &&
             accountData.attending.map((eventId) => {
               const attendingEvent = events.find(
@@ -88,21 +73,28 @@ function AccountDetail() {
               );
               if (attendingEvent) {
                 return (
-                  <tr key={attendingEvent.id}>
-                    <td>
-                      <Link to={`/events/${attendingEvent.id}`}>
+                  <div key={attendingEvent.id} className="card">
+                    <div>
+                      <Link className="card-title" to={`/events/${attendingEvent.id}`}>
                         {attendingEvent.event_title}
                       </Link>
-                    </td>
-                    <td>{attendingEvent.location}</td>
-                    <td>{attendingEvent.picture}</td>
-                  </tr>
+                    </div>
+                    <div>{attendingEvent.location}</div>
+                    <div className="card-image-container">
+                      <img className="card-image" src={attendingEvent.picture} alt="card" />
+                    </div>
+                  </div>
                 );
               }
               return null;
             })}
-        </tbody>
-      </table>
+        </div>
+      <div>
+        <img src="https://i.imgur.com/7KFlFe1.jpg"
+        className="host-event"
+        alt="card"
+        />
+      </div>
     </>
   );
 }

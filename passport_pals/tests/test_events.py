@@ -3,6 +3,11 @@ from main import app
 from queries.events import EventQueries
 from authenticator import authenticator
 
+# Stesha's test - list events
+# Maggie's test - event detail
+# Andrew's test- delete event
+# Rebecca's test - get account (in test_accounts.py)
+
 client = TestClient(app)
 
 # Stesha's test - list events
