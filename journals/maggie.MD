@@ -1,14 +1,27 @@
+## Please note that I wrote journal entries every day but I added them on VS code every couple of days.
+
 ## June 09, 2023
 
 Today, I worked on:
 
-* Adding the
+* Adding more CSS and finishing deployment
+
+Today we finished deployment after talking with Andrew, apparently
+our deployment was fine, there was just an issue on their side.
+After meeting with Candice, we were confident in our project and
+decided to spend remaining time styling our site and working on
+last minute things.
 
 ## June 08, 2023
 
 Today, I worked on:
 
-* Adding the
+* Deployment
+
+Today we worked on deployment all day. We followed along on learn,
+got help from SEIRs, other students, and finally Andrew helped a
+bit when we were a bit stuck. We got our front end to deploy but
+couldnt figure out why our backend wasn't deploying.
 
 ## June 07, 2023
 

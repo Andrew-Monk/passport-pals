@@ -20,12 +20,9 @@ code {
   width: 100%;
   height: 100px;
   padding-bottom: 110px;
-  padding-bottom: 110px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: whitesmoke;
-  border: 1px solid rgba(255, 255, 255, 0.18);
   background-color: whitesmoke;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
@@ -33,7 +30,7 @@ code {
 .nav-title-container {
   display: flex;
   align-items: center;
-  align-items: center;
+  z-index: 100;
 }
 
 .nav-title {
@@ -43,6 +40,7 @@ code {
   padding-left: 20px;
   color: rgb(255, 156, 27);
   text-shadow: 1px 1px 2px #818181;
+  z-index: 100;
 }
 
 .logo-icon {
@@ -56,7 +54,6 @@ code {
   align-items: center;
   gap: 40px;
   background-color: rgb(244, 244, 244);
-  background-color: rgb(244, 244, 244);
   padding: 40px;
   height: 40px;
   margin-top: 10px;
@@ -64,7 +61,7 @@ code {
   border: solid rgb(212, 212, 212) 1px;
   border-radius: 50px;
   box-shadow: 0px 3px 7px 3px rgba(194, 194, 194, 0.705);
-  box-shadow: 0px 3px 7px 3px rgba(194, 194, 194, 0.705);
+  z-index: 100;
 }
 
 .navlink {
@@ -75,15 +72,6 @@ code {
 
 .navlink:hover {
   color: rgb(137, 137, 137);
-}
-
-.nav-user {
-  padding: 20px;
-  margin: 20px;
-  display: inline;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .nav-user {
@@ -108,6 +96,14 @@ code {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 90%;
+}
+
+.event-list {
   position: fixed;
   top: 0;
   left: 0;
@@ -116,9 +112,55 @@ code {
   object-fit: cover;
   z-index: 0;
   opacity: 90%;
+  overflow: hidden;
+  background-image: "https://i.imgur.com/Zn3DfcJ.jpg";
+  pointer-events: none;
+  user-select: none;
+}
+
+.host-event {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  z-index: 0;
+  z-index: -1;
   opacity: 90%;
+  overflow: hidden;
+  background-image: "https://i.imgur.com/XYVD23h.jpg";
+  pointer-events: none;
+  user-select: none;
+}
+
+.signup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 90%;
+  overflow: hidden;
+  background-image: "https://i.imgur.com/TDkZ7H2.jpg";
+  pointer-events: none;
+  user-select: none;
+}
+
+.account-details {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 90%;
+  overflow: hidden;
+  background-image: "https://i.imgur.com/7KFlFe1.jpg";
+  pointer-events: none;
+  user-select: none;
 }
 
 .card-section {
@@ -128,8 +170,8 @@ code {
   padding-left: 50px;
   padding-right: 50px;
   justify-content: center;
-  justify-content: center;
 }
+
 .upcoming-events {
   font-weight: 600;
   color: rgb(244, 244, 244);
@@ -143,22 +185,79 @@ code {
   box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
   backdrop-filter: blur(4px);
   background: rgba(255, 255, 255, 0.25);
+}
+
+.account {
+  font-weight: 600;
   color: rgb(244, 244, 244);
   text-align: center;
   font-size: 25px;
   margin-bottom: 40px;
-  text-shadow: 2px 2px 4px #838383;
+  text-shadow: 1px 1px 2px #363535;
+  border-radius: 40px;
+  padding: 40px;
+  border: solid rgb(212, 212, 212) 1px;
+  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  display: inline-block;
+}
+
+.signup-form {
+  font-weight: 600;
+  color: rgb(244, 244, 244);
+  text-align: center;
+  font-size: 25px;
+  /* margin-bottom: 40px; */
+  text-shadow: 1px 1px 2px #363535;
+  /* border-radius: 40px; */
+  padding: 40px;
+  border: solid rgb(212, 212, 212) 1px;
+  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  z-index: -1;
+}
+
+.signup-header {
+  font-weight: 600;
+  color: rgb(244, 244, 244);
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px #2b2a2a;
   border-radius: 40px;
   padding: 20px;
   border: solid rgb(212, 212, 212) 1px;
   box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
   backdrop-filter: blur(4px);
   background: rgba(255, 255, 255, 0.25);
+  z-index: -1;
+}
+
+.account-container {
+  display: flex;
+  justify-content: center;
+}
+
+.account-two {
+  font-weight: 600;
+  color: rgb(244, 244, 244);
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px #363535;
+  border-radius: 40px;
+  padding: 2px;
+  border: solid rgb(212, 212, 212) 1px;
+  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  display: inline-block;
 }
 
 .cards-container {
   display: flex;
-  justify-content: center;
   justify-content: center;
   gap: 80px;
 }
@@ -168,9 +267,6 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(245, 245, 245, 0.25);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(245, 245, 245, 0.25);
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -193,19 +289,15 @@ code {
   color: rgb(43, 43, 43);
   text-align: center;
 }
+
 .card-image-container {
   overflow: hidden;
   height: 200px;
   width: 200px;
 }
+
 .card-image {
   box-shadow: 0px 3px 7px 3px rgba(217, 217, 217, 0.705);
-}
-
-.hero-image {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
 }
 
 .list-container {
@@ -216,6 +308,16 @@ code {
   margin: 30px;
 }
 
+.account-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 30px;
+  column-gap: 30px;
+  margin: 30px;
+  margin-top: 1px;
+  margin-bottom: 70px;
+}
+
 .list-card {
   box-shadow: 0px 3px 7px 3px rgba(217, 217, 217, 0.705);
   padding: 20px;
@@ -224,6 +326,9 @@ code {
   overflow: hidden;
   height: 350px;
   align-items: center;
+  background: rgba(245, 245, 245, 0.25);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .list-card-picture {
@@ -232,4 +337,14 @@ code {
 .see-more-container {
   display: flex;
   justify-content: center;
+}
+
+.category-list {
+  border-radius: 100px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: rgba(245, 245, 245, 0.25);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0px 3px 7px 3px rgba(217, 217, 217, 0.705);
 }
