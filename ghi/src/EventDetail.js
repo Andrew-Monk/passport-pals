@@ -9,7 +9,7 @@ function EventDetail() {
   const { fetchWithCookie, token } = useToken();
 
   const fetchEvent = useCallback(async () => {
-    const eventUrl = `http://localhost:8000/api/events/${event_id}/`;
+    const eventUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/events/${event_id}`;
     const response = await fetch(eventUrl);
     if (response.ok) {
       const responseData = await response.json();
@@ -28,7 +28,7 @@ function EventDetail() {
       `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/token`
     );
     const accountEmail = accountResponse.account.email;
-    const signUpUrl = `http://localhost:8000/api/accounts`;
+    const signUpUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/accounts`;
 
     const data = {};
     data.event_id = event_id;

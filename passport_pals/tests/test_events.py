@@ -3,7 +3,17 @@ from main import app
 from queries.events import EventQueries
 from authenticator import authenticator
 
+# Stesha's test - list events
+# Maggie's test - event detail
+# Andrew's test- delete event
+# Rebecca's test - get account (in test_accounts.py)
+
 client = TestClient(app)
+
+
+def get_current_account_data_fake():
+    return {"id": "64791e5ba56860f4ad9993ef", "email": "test2@test2.com"}
+
 
 
 def get_current_account_data_fake():
@@ -27,7 +37,7 @@ class EmptyEventQueries:
                 "payment_type": "Venmo",
                 "date": "2023-07-19T17:00:00",
                 "description": "Come enjoy the booze!",
-                "id": "647915ca20824b2b974e3f50",
+                "id": "647915ca20824b2b974e3f51",
             },
             {
                 "event_title": "Tequila Tasting",

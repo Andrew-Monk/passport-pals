@@ -1,4 +1,3 @@
-from fastapi import FastAPI
 from .client import Queries
 from models import AccountIn, AccountOut
 from pymongo.errors import DuplicateKeyError

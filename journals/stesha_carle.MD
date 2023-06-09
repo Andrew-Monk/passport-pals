@@ -1,6 +1,16 @@
 ## Journals
 
 
+## 6/8
+*Started deployment, updated unit tests
+
+When we added our protected backends, our tests were no longer passing because they were missing the authenticator piece.  Once we added that, the passed
+
+## 6/7
+* created unit tests, added more protected backends
+
+They work!  Got some clarity on the return of the mock functions, but went well.
+
 ## 6/6
 * fixed frontend for signing up for events and fixed frontend for not rendering updated data to our account page
 

@@ -11,22 +11,24 @@ import UserSignup from "./UserSignup";
 import AccountDetail from "./AccountDetail";
 
 function App() {
+  const domain = /https:\/\/[^/]+/;
+  const basename = process.env.PUBLIC_URL.replace(domain, "");
   return (
     <div>
-      <BrowserRouter>
-        <AuthProvider baseUrl="http://localhost:8000">
+      <AuthProvider baseUrl={process.env.REACT_APP_PASSPORT_PALS_API_HOST}>
+        <BrowserRouter basename={basename}>
           <Nav />
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/events/:event_id/" element={<EventDetail />} />{" "}
+            <Route path="/events/:event_id" element={<EventDetail />} />{" "}
             <Route path="/events/list" element={<EventsList />} />
             <Route path="/events/create" element={<CreateEventForm />} />
             <Route path="/login/" element={<Login />} />
-            <Route path="/usersignup/" element={<UserSignup />} />
-            <Route path="/myaccount/" element={<AccountDetail />} />
+            <Route path="/usersignup" element={<UserSignup />} />
+            <Route path="/myaccount" element={<AccountDetail />} />
           </Routes>
-        </AuthProvider>
-      </BrowserRouter>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

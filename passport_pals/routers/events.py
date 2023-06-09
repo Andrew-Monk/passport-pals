@@ -3,7 +3,6 @@ from models import EventIn, EventOut, EventList
 from queries.events import EventQueries
 from authenticator import authenticator
 from bson import ObjectId
-from typing import Optional
 from queries.accounts import AccountQueries
 
 router = APIRouter()
@@ -16,7 +15,6 @@ async def create_event(
     account_data: dict = Depends(authenticator.try_get_current_account_data),
     account_repo: AccountQueries = Depends(),
 ):
-    print(account_data)
     created_event = repo.create(event)
     if account_data is None or "id" not in account_data:
         raise HTTPException(
@@ -31,7 +29,7 @@ async def create_event(
     event_id = created_event.id
     props = account_repo.collection.find_one(
         {"_id": ObjectId(account_data["id"])}
-        )
+    )
     if "hosting" not in props:
         props["hosting"] = []
     props["hosting"].append(event_id)
@@ -66,7 +64,7 @@ def update_event(
     event_in: EventIn,
     response: Response,
     queries: EventQueries = Depends(),
-    account_data: dict = Depends(authenticator.try_get_current_account_data)
+    account_data: dict = Depends(authenticator.try_get_current_account_data),
 ):
     if account_data is None or "id" not in account_data:
         raise HTTPException(
@@ -84,8 +82,7 @@ def update_event(
 async def delete_event(
     event_id: str,
     repo: EventQueries = Depends(),
-    # account: dict = Depends(?????),
-    account_data: dict = Depends(authenticator.try_get_current_account_data)
+    account_data: dict = Depends(authenticator.try_get_current_account_data),
 ):
     if account_data is None or "id" not in account_data:
         raise HTTPException(

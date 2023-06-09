@@ -15,7 +15,7 @@ function EventsList() {
   const [filteredEvents, setFilteredEvents] = useState([]);
 
   async function fetchEvents() {
-    const eventsUrl = "http://localhost:8000/api/events/";
+    const eventsUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/events`;
     const response = await fetch(eventsUrl);
     if (response.ok) {
       const responseData = await response.json();
@@ -39,7 +39,6 @@ function EventsList() {
 
   const handleCategoryChange = (event) => {
     const value = event.target.value;
-    console.log(value);
     setCategory(value);
   };
 
