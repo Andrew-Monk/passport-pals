@@ -60,10 +60,6 @@ function MainPage() {
           }}
           alt="card"
         />
-
-        <div>
-          <p>PassportPals is blah blah blah</p>
-        </div>
       </div>
       <div className="see-more-container">
         <Link to="/events/list">
