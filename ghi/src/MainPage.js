@@ -7,7 +7,7 @@ function MainPage() {
   const [background, setBackground] = useState("");
 
   const fetchEvents = useCallback(async () => {
-    const eventsUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/events/`;
+    const eventsUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/events`;
     const response = await fetch(eventsUrl);
     if (response.ok) {
       const responseData = await response.json();

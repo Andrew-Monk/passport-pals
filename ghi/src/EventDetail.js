@@ -9,7 +9,7 @@ function EventDetail() {
   const { fetchWithCookie, token } = useToken();
 
   const fetchEvent = useCallback(async () => {
-    const eventUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/events/${event_id}/`;
+    const eventUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/events/${event_id}`;
     const response = await fetch(eventUrl);
     if (response.ok) {
       const responseData = await response.json();

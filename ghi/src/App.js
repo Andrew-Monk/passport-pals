@@ -20,12 +20,12 @@ function App() {
           <Nav />
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/events/:event_id/" element={<EventDetail />} />{" "}
+            <Route path="/events/:event_id" element={<EventDetail />} />{" "}
             <Route path="/events/list" element={<EventsList />} />
             <Route path="/events/create" element={<CreateEventForm />} />
             <Route path="/login/" element={<Login />} />
-            <Route path="/usersignup/" element={<UserSignup />} />
-            <Route path="/myaccount/" element={<AccountDetail />} />
+            <Route path="/usersignup" element={<UserSignup />} />
+            <Route path="/myaccount" element={<AccountDetail />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
