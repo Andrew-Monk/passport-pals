@@ -20,20 +20,15 @@ code {
   width: 100%;
   height: 100px;
   padding-bottom: 110px;
-  padding-bottom: 110px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: whitesmoke;
-  border: 1px solid rgba(255, 255, 255, 0.18);
   background-color: whitesmoke;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .nav-title-container {
   display: flex;
-  align-items: center;
-  align-items: center;
   align-items: center;
 }
 
@@ -62,16 +57,12 @@ code {
   align-items: center;
   gap: 40px;
   background-color: rgb(244, 244, 244);
-  background-color: rgb(244, 244, 244);
-  background-color: rgb(244, 244, 244);
   padding: 40px;
   height: 40px;
   margin-top: 10px;
   margin-right: 10px;
   border: solid rgb(212, 212, 212) 1px;
   border-radius: 50px;
-  box-shadow: 0px 3px 7px 3px rgba(194, 194, 194, 0.705);
-  box-shadow: 0px 3px 7px 3px rgba(194, 194, 194, 0.705);
   box-shadow: 0px 3px 7px 3px rgba(194, 194, 194, 0.705);
 }
 
@@ -125,17 +116,8 @@ code {
   position: fixed;
   top: 0;
   left: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 90%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 90%;
   object-fit: cover;
   z-index: 0;
   opacity: 90%;
@@ -148,33 +130,9 @@ code {
   padding-left: 50px;
   padding-right: 50px;
   justify-content: center;
-  justify-content: center;
-  justify-content: center;
 }
 .upcoming-events {
   font-weight: 600;
-  color: rgb(244, 244, 244);
-  text-align: center;
-  font-size: 25px;
-  margin-bottom: 40px;
-  text-shadow: 2px 2px 4px #838383;
-  border-radius: 40px;
-  padding: 20px;
-  border: solid rgb(212, 212, 212) 1px;
-  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
-  backdrop-filter: blur(4px);
-  background: rgba(255, 255, 255, 0.25);
-  color: rgb(244, 244, 244);
-  text-align: center;
-  font-size: 25px;
-  margin-bottom: 40px;
-  text-shadow: 2px 2px 4px #838383;
-  border-radius: 40px;
-  padding: 20px;
-  border: solid rgb(212, 212, 212) 1px;
-  box-shadow: 0px 3px 7px 3px rgba(83, 83, 83, 0.22);
-  backdrop-filter: blur(4px);
-  background: rgba(255, 255, 255, 0.25);
   color: rgb(244, 244, 244);
   text-align: center;
   font-size: 25px;
@@ -191,8 +149,6 @@ code {
 .cards-container {
   display: flex;
   justify-content: center;
-  justify-content: center;
-  justify-content: center;
   gap: 80px;
 }
 
@@ -201,12 +157,6 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(245, 245, 245, 0.25);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(245, 245, 245, 0.25);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(245, 245, 245, 0.25);
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -268,4 +218,103 @@ code {
 .see-more-container {
   display: flex;
   justify-content: center;
+}
+
+.detail-header-container {
+}
+
+.event-detail-title {
+  margin: 20px;
+  color: whitesmoke;
+  text-shadow: 2px 2px 4px #6d6d6d;
+  position: absolute;
+}
+
+.event-detail-location {
+  margin-top: 70px;
+  margin-left: 20px;
+  color: whitesmoke;
+  text-shadow: 2px 2px 4px #6d6d6d;
+  position: absolute;
+}
+
+.event-detail-image {
+  object-fit: cover;
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  height: 300px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.text-modal {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+  background: rgba(245, 245, 245, 0.25);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.event-details {
+  color: rgb(255, 156, 27);
+  text-shadow: 1px 1px 2px #818181;
+  font-weight: 600;
+}
+
+.detail {
+  margin-left: 22px;
+  font-weight: 200;
+  color: rgb(43, 43, 43);
+}
+
+.description {
+  margin-bottom: 30px;
+}
+
+.detail-container {
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), 95%, rgba(0, 0, 0, 0));
+
+  background-color: rgba(255, 156, 27, 0.368);
+  padding-top: 30px;
+  border-bottom: solid 8px rgb(255, 156, 27);
+}
+
+.login-join {
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgb(0, 173, 0);
+  transition: 0.3s;
+}
+
+.login-join-link {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: 800;
+}
+
+.login-join:hover {
+  background-color: rgba(0, 129, 0, 0.778);
+}
+
+.login-join-link:hover {
+  color: whitesmoke;
+}
+
+.login-join-button {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: 800;
 }
