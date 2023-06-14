@@ -13,7 +13,7 @@ const UserSignup = () => {
   const username = email
 
 
-  const handleRegistration = (e) => {
+  const handleRegistration = async (e) => {
     e.preventDefault();
     const accountData = {
       full_name: fullName,
@@ -27,7 +27,7 @@ const UserSignup = () => {
       `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/accounts`
     );
     e.target.reset();
-    login(username, password);
+    await login(username, password);
     navigate("/");
   };
 
