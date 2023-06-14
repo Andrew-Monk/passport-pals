@@ -26,8 +26,8 @@ const UserSignup = () => {
       accountData,
       `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/accounts`
     );
-    e.target.reset();
-    await login(username, password);
+    // e.target.reset();
+    // await login(username, password);
     navigate("/");
   };
 
