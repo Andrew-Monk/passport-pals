@@ -42,7 +42,7 @@ build-front-end-job:
     # PassportPals, Passport_Pals, passport_pals
     # GROUP_NAME, PROJECT_NAME, & WEBSERVICE_NAME below.
     PUBLIC_URL: https://PassportPals.gitlab.io/module3-project-gamma
-    REACT_APP_PASSPORT_PALS_API_HOST: http://passport-pals.feb-a-4.mod3projects.com/
+    REACT_APP_PASSPORT_PALS_API_HOST: http://passport-pals.feb-a-4.mod3projects.com
   script:
     - cd ghi
     - npm install
