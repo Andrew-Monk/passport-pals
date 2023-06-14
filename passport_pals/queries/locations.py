@@ -1,5 +1,3 @@
-from typing import List
-
 def get_locations():
     locations = [
         {"value": "San Diego, CA, USA", "label": "San Diego, CA USA"},
