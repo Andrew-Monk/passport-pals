@@ -8,7 +8,7 @@ const UserSignup = () => {
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [language, setLanguage] = useState("");
-  const { register, token, login } = useToken();
+  const { register, login } = useToken();
   const navigate = useNavigate();
   const username = email
 
@@ -26,11 +26,9 @@ const UserSignup = () => {
       accountData,
       `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/accounts`
     );
-    // e.target.reset();
-      if (token) {
-        login(username, password);
-        navigate("/");
-      }
+    e.target.reset();
+    await login(username, password);
+    navigate("/");
   };
 
   return (
