@@ -7,7 +7,7 @@ const categories = [
   { value: "Wellness & Fitness", label: "Wellness & Fitness" },
   { value: "Art & Cultural", label: "Art & Cultural" },
   { value: "Restaurants & Bars", label: "Restaurants & Bars" },
-  { value: "Sightseeing & Local Spotsr", label: "Sightseeing & Local Spots" },
+  { value: "Sightseeing & Local Spots", label: "Sightseeing & Local Spots" },
 ];
 
 function CreateEventForm() {
@@ -21,6 +21,7 @@ function CreateEventForm() {
   const [language, setLanguage] = useState("");
   const [payment, setPayment] = useState("");
   const [description, setDescription] = useState("");
+  const [locations, setLocations] = useState([]);
   const { token } = useToken();
   const navigate = useNavigate();
 
@@ -120,6 +121,24 @@ function CreateEventForm() {
     }
   }, [token, navigate]);
 
+  async function fetchLocations() {
+    const response = await fetch(
+      `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/locations`
+    );
+    if (response.ok) {
+      const responseData = await response.json();
+      const locationsData = responseData.locations;
+      setLocations(locationsData);
+    }
+  }
+
+  useEffect(() => {
+    const fetchLocationsData = async () => {
+      await fetchLocations();
+    };
+    fetchLocationsData();
+  }, []);
+
   return (
     <div className="row">
       <div className="offset-4 col-4">
@@ -141,18 +160,24 @@ function CreateEventForm() {
                 />
                 <label htmlFor="title">Title</label>
               </div>
-              <div className="form-floating mb-3">
-                <input
-                  value={location}
+              <div>
+                <select
                   onChange={handleLocationChange}
-                  placeholder="location"
-                  name="location"
+                  value={location}
                   required
-                  type="string"
+                  name="location"
                   id="location"
-                  className="form-control"
-                />
-                <label htmlFor="location">Location</label>
+                  className="form-select mb-3 pt-3 pb-3"
+                >
+                  <option value="">Choose a Location...</option>
+                  {locations.map((location) => {
+                    return (
+                      <option key={location.value} value={location.value}>
+                        {location.label}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -201,7 +226,6 @@ function CreateEventForm() {
                   name="category"
                   id="category"
                   className="form-select mb-3 pt-3 pb-3"
-
                 >
                   <option value="">Choose a Category...</option>
                   {categories.map((category) => {
@@ -271,15 +295,15 @@ function CreateEventForm() {
             </div>
           </form>
           <div>
-            <img src="https://i.imgur.com/XYVD23h.jpg"
-            className="host-event"
-            alt="card"
+            <img
+              src="https://i.imgur.com/XYVD23h.jpg"
+              className="host-event"
+              alt="card"
             />
           </div>
         </div>
       </div>
     </div>
-
   );
 }
 

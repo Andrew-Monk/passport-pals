@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import useToken from "@galvanize-inc/jwtdown-for-react";
+import { FaPassport } from "react-icons/fa";
 
 function Nav() {
   const { logout } = useToken();
@@ -54,16 +55,18 @@ function Nav() {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="navlink" to="/myaccount">
-                  Account
-                </NavLink>
-              </li>
-              <li>
                 <NavLink className="navlink" to="/" onClick={handleLogout}>
                   Logout
                 </NavLink>
               </li>
-              <div className="nav-user">Welcome, {accountData.full_name}!</div>
+              <li>
+                <NavLink className="nav-user" to="/myaccount">
+                  <span className="passport">
+                    <FaPassport />
+                  </span>
+                  {accountData.full_name}
+                </NavLink>
+              </li>
             </div>
           ) : (
             <div className="navlinks">

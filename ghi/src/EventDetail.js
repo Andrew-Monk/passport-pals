@@ -66,7 +66,15 @@ function EventDetail() {
         <p className="detail description">{eventDetails.description}</p>
         <div className="detail-container">
           <p className="detail date">
-            <strong>When:</strong> {eventDetails.date}
+            <strong>Date:</strong>{" "}
+            {new Date(eventDetails.date).toLocaleDateString()}
+          </p>
+          <p className="detail date">
+            <strong>Time:</strong>{" "}
+            {new Date(eventDetails.date).toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
           </p>
           <p className="detail language">
             <strong>Language:</strong> {eventDetails.language}
