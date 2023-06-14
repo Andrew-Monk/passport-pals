@@ -8,7 +8,7 @@ const UserSignup = () => {
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [language, setLanguage] = useState("");
-  const { register, token } = useToken();
+  const { register, token, login } = useToken();
   const navigate = useNavigate();
   const username = email
 
