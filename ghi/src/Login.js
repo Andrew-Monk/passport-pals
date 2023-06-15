@@ -1,7 +1,7 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import bg from "../public/background/1.jpg";
+import bg from "./static/1.jpg";
 
 function Login() {
   const [email, setEmail] = useState("");
