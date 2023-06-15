@@ -1,6 +1,7 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import bg from "../public/background/1.jpg";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -8,7 +9,7 @@ function Login() {
   const { login } = useToken();
   const navigate = useNavigate();
   const picCount = 7;
-  const [background, setBackground] = useState("background/1.jpg");
+  const [background, setBackground] = useState({bg});
   const username = email;
 
   const changeBackground = () => {
