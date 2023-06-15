@@ -7,12 +7,12 @@ function Login() {
   const [password, setPassword] = useState("");
   const { login } = useToken();
   const navigate = useNavigate();
-  const picCount = 8;
-  const [background, setBackground] = useState("");
+  const picCount = 7;
+  const [background, setBackground] = useState(`url(background/0.jpg)`);
   const username = email;
 
   const changeBackground = () => {
-    const num = Math.ceil(Math.random() * picCount);
+    const num = Math.floor(Math.random() * picCount);
     const randomPic = `url(background/${num}.jpg)`;
     setBackground(randomPic);
   };
