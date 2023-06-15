@@ -9,7 +9,7 @@ function Login() {
   const { login } = useToken();
   const navigate = useNavigate();
   const picCount = 7;
-  const [background, setBackground] = useState({bg});
+  const [background, setBackground] = useState(bg);
   const username = email;
 
   const changeBackground = () => {
