@@ -44,7 +44,12 @@ function MainPage() {
               </Link>
               <p className="card-location">{event.location}</p>
               <div className="card-image-container">
-                <img className="card-image" src={event.picture} alt="card" />
+                <img
+                  className="card-image"
+                  src={event.picture}
+                  alt="card"
+                  style={{ height: "200px", width: "auto" }}
+                />
               </div>
             </div>
           ))}
