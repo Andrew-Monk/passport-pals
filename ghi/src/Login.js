@@ -8,7 +8,7 @@ function Login() {
   const { login } = useToken();
   const navigate = useNavigate();
   const picCount = 7;
-  const [background, setBackground] = useState(`url(background/0.jpg)`);
+  const [background, setBackground] = useState("background/1.jpg");
   const username = email;
 
   const changeBackground = () => {
