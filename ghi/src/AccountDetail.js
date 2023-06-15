@@ -50,13 +50,21 @@ function AccountDetail() {
                 return (
                   <div key={hostedEvent.id} className="card">
                     <div>
-                      <Link className="card-title" to={`/events/${hostedEvent.id}`}>
+                      <Link
+                        className="card-title"
+                        to={`/events/${hostedEvent.id}`}
+                      >
                         {hostedEvent.event_title}
                       </Link>
                     </div>
                     <div>{hostedEvent.location}</div>
                     <div className="card-image-container">
-                      <img className="card-image" src={hostedEvent.picture} alt="card" />
+                      <img
+                        className="card-image"
+                        src={hostedEvent.picture}
+                        alt="card"
+                        style={{ height: "200px", width: "auto" }}
+                      />
                     </div>
                   </div>
                 );
@@ -74,13 +82,21 @@ function AccountDetail() {
                 return (
                   <div key={attendingEvent.id} className="card">
                     <div>
-                      <Link className="card-title" to={`/events/${attendingEvent.id}`}>
+                      <Link
+                        className="card-title"
+                        to={`/events/${attendingEvent.id}`}
+                      >
                         {attendingEvent.event_title}
                       </Link>
                     </div>
                     <div>{attendingEvent.location}</div>
                     <div className="card-image-container">
-                      <img className="card-image" src={attendingEvent.picture} alt="card" />
+                      <img
+                        className="card-image"
+                        src={attendingEvent.picture}
+                        alt="card"
+                        style={{ height: "200px", width: "auto" }}
+                      />
                     </div>
                   </div>
                 );
