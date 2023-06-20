@@ -13,7 +13,7 @@ const UserSignup = () => {
   const username = email
 
 
-  const handleRegistration = (e) => {
+  const handleRegistration = async (e) => {
     e.preventDefault();
     const accountData = {
       full_name: fullName,
@@ -27,83 +27,85 @@ const UserSignup = () => {
       `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/accounts`
     );
     e.target.reset();
-    login(username, password);
+    await login(username, password);
     navigate("/");
   };
 
   return (
-    <div className="row">
-    <div className="offset-4 col-4">
-    <div className="mt-4 text-dark"></div>
-      <h1 className="signup-header">Sign Up</h1>
-        <form onSubmit={(e) => handleRegistration(e)}>
-          <div className="mb-3 row">
-            <label className="form-label">Email</label>
-            <input
-              name="email"
-              type="email"
-              className="form-control"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Password</label>
-            <input
-              name="password"
-              type="password"
-              className="form-control"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Full Name</label>
-            <input
-              name="full_name"
-              type="text"
-              className="form-control"
-              onChange={(e) => {
-                setFullName(e.target.value);
-              }}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Country</label>
-            <input
-              name="country"
-              type="text"
-              className="form-control"
-              onChange={(e) => {
-                setCountry(e.target.value);
-              }}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Language</label>
-            <input
-              name="language"
-              type="text"
-              className="form-control"
-              onChange={(e) => {
-                setLanguage(e.target.value);
-              }}
-            />
-          </div>
-          <div>
-            <input className="btn btn-primary" type="submit" value="Register" />
-          </div>
-        </form>
-        <div>
-            <img src="https://i.imgur.com/TDkZ7H2.jpg"
-            className="host-event"
-            alt="card"
-            />
-          </div>
-      </div>
+    <div className="row offset-1">
+        <div className="offset-4 col-4">
+        <div className="signup-card">
+          <h1 className="signup-header">Become a Member!</h1>
+          <form onSubmit={(e) => handleRegistration(e)}>
+            <div className="mb-2">
+              <input
+                name="email"
+                type="email"
+                className="form-control"
+                placeholder="Email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+            </div>
+            <div className="mb-2">
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                className="form-control"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+            </div>
+            <div className="mb-2">
+              <input
+                name="full_name"
+                type="text"
+                placeholder="Full Name"
+                className="form-control"
+                onChange={(e) => {
+                  setFullName(e.target.value);
+                }}
+              />
+            </div>
+            <div className="mb-2">
+              <input
+                name="country"
+                type="text"
+                placeholder="Country"
+                className="form-control"
+                onChange={(e) => {
+                  setCountry(e.target.value);
+                }}
+              />
+            </div>
+            <div className="mb-2">
+              <input
+                name="language"
+                placeholder="Language"
+                className="form-control"
+                onChange={(e) => {
+                  setLanguage(e.target.value);
+                }}
+              />
+            </div>
+            <div>
+              <input className="btn btn-primary" type="submit" value="Sign Up!" />
+            </div>
+          </form>
     </div>
+          <div>
+            <img
+              src="https://i.imgur.com/TDkZ7H2.jpg"
+              className="host-event"
+              alt="card"
+              style={{ zIndex: -1}}
+            />
+          </div>
+        </div>
+      </div>
   );
 };
 

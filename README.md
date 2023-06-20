@@ -28,7 +28,7 @@ This website would ideally develop a large network of active users from differen
 
 ## Link to Deployed Project:
 
-"LINK HERE"
+https://passportpals.gitlab.io/module3-project-gamma/
 
 ## Project Initialization (Local Machine)
 
