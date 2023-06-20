@@ -6,6 +6,8 @@ from datetime import datetime
 class EventIn(BaseModel):
     event_title: str
     location: str
+    postal_code: str
+    country: str
     expected_guests: Optional[list]
     picture: str
     category: str
