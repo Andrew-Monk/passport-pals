@@ -1,13 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from authenticator import authenticator
-from routers import accounts, events
+from routers import accounts, events, geocodify
 import os
 
 app = FastAPI()
-app.include_router(authenticator.router)
-app.include_router(accounts.router)
-app.include_router(events.router)
+app.include_router(authenticator.router, tags=["Auth"])
+app.include_router(accounts.router, tags=["Accounts"])
+app.include_router(events.router, tags=["Events"])
+app.include_router(geocodify.router, tags=["Geocodify"])
 
 
 app.add_middleware(

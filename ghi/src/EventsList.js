@@ -22,6 +22,7 @@ function EventsList() {
       const responseData = await response.json();
       const eventsData = responseData.events;
       setEvents(eventsData);
+      console.log("pickles", eventsData)
     }
   }
 
@@ -46,24 +47,29 @@ function EventsList() {
 
   return (
     <>
-    <div className="card-section">
-      <h2 className="upcoming-events">Events</h2>
-      <select className="category-list"
-        onChange={handleCategoryChange}
-        value={category}
-        required
-        name="category"
-        id="category"
-      >
-        <option value="">Choose a Category...</option>
-        {categories.map((category) => {
-          return (
-            <option key={category.value} value={category.value}>
-              {category.label}
-            </option>
-          );
-        })}
-      </select>
+      <div className="card-section">
+        <h2 className="upcoming-events">Events</h2>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <select
+          className="category-list"
+          onChange={handleCategoryChange}
+          value={category}
+          required
+          name="category"
+          id="category"
+        >
+          <option value="">Choose a Category...</option>
+          {categories.map((category) => {
+            return (
+              <option key={category.value} value={category.value}>
+                {category.label}
+              </option>
+            );
+          })}
+        </select>
       </div>
       <div className="list-container">
         {filteredEvents.map((event) => {
@@ -84,11 +90,11 @@ function EventsList() {
         })}
       </div>
       <div>
-        <img src="https://i.imgur.com/Zn3DfcJ.jpg"
+        <img
+          src="https://i.imgur.com/Zn3DfcJ.jpg"
           className="event-list"
           alt="card"
         />
-
       </div>
     </>
   );

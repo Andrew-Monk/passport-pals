@@ -12,21 +12,28 @@ const categories = [
 ];
 
 function CreateEventForm() {
-  const [title, setTitle] = useState("");
-  const [location, setLocation] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [picture, setPicture] = useState("");
-  const [category, setCategory] = useState("");
-  const [cost, setCost] = useState("");
-  const [language, setLanguage] = useState("");
-  const [payment, setPayment] = useState("");
-  const [description, setDescription] = useState("");
-  const [country, setCountry] = useState("");
-  const [postalCode, setPostalCode] = useState("");
   const [countries, setCountries] = useState([]);
   const { token } = useToken();
   const navigate = useNavigate();
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [eventForm, setEventForm] = useState({
+    event_title: "",
+    location: "",
+    date: "",
+    picture: "",
+    category: "",
+    cost: "",
+    language: "",
+    payment_type: "",
+    description: "",
+    country: "",
+  });
+
+  const handleChange = (event) => {
+    setEventForm({ ...eventForm, [event.target.name]: event.target.value });
+    console.log(eventForm.cost);
+  };
 
   const fetchCountries = async () => {
     try {
@@ -37,16 +44,19 @@ function CreateEventForm() {
     }
   };
 
+  const locationInput = async () => {
+    const geoKeyResponse = await axios.get(
+      `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/geocodify-key`
+    );
+    const geoKey = geoKeyResponse.data.geocodify_key;
+    const searchQuery = eventForm.location
+    const autoUrl = await axios.get(
+      `https://api.geocodify.com/v2/autocomplete?api_key=${geoKey}&q=${searchQuery}`
+    );
 
-  const handleTitleChange = (event) => {
-    const value = event.target.value;
-    setTitle(value);
   };
 
-  const handleLocationChange = (event) => {
-    const value = event.target.value;
-    setLocation(value);
-  };
+
 
   const handleDateChange = (event) => {
     const value = event.target.value;
@@ -58,63 +68,11 @@ function CreateEventForm() {
     setTime(value);
   };
 
-  const handlePictureChange = (event) => {
-    const value = event.target.value;
-    setPicture(value);
-  };
-
-  const handleCategoryChange = (event) => {
-    const value = event.target.value;
-    setCategory(value);
-  };
-
-  const handleCostChange = (event) => {
-    const value = event.target.value;
-    setCost(value);
-  };
-
-  const handleLanguageChange = (event) => {
-    const value = event.target.value;
-    setLanguage(value);
-  };
-
-  const handlePaymentChange = (event) => {
-    const value = event.target.value;
-    setPayment(value);
-  };
-
-  const handleDescriptionChange = (event) => {
-    const value = event.target.value;
-    setDescription(value);
-  };
-
-  const handleCountryChange = (event) => {
-    const value = event.target.value;
-    setCountry(value);
-  };
-
-  const handlePostalCodeChange = (event) => {
-    const value = event.target.value;
-    setPostalCode(value);
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const data = {};
-
-    data.event_title = title;
-    data.location = location;
+    const data = { ...eventForm };
     data.date = date + " " + time;
-    data.picture = picture;
-    data.category = category;
-    data.cost = cost;
-    data.payment_type = payment;
-    data.language = language;
-    data.description = description;
-    data.country = country;
-    data.postal_code = postalCode;
-    console.log(data)
 
     const createEventUrl = `${process.env.REACT_APP_PASSPORT_PALS_API_HOST}/api/events`;
     const fetchConfig = {
@@ -128,18 +86,20 @@ function CreateEventForm() {
 
     const response = await fetch(createEventUrl, fetchConfig);
     if (response.ok) {
-      setTitle("");
-      setLocation("");
-      setPostalCode("");
-      setCountry("");
+      setEventForm({
+        event_title: "",
+        location: "",
+        date: "",
+        picture: "",
+        category: "",
+        cost: "",
+        language: "",
+        payment_type: "",
+        description: "",
+        country: "",
+      });
       setDate("");
       setTime("");
-      setPicture("");
-      setCategory("");
-      setCost("");
-      setLanguage("");
-      setPayment("");
-      setDescription("");
     }
   };
 
@@ -147,6 +107,7 @@ function CreateEventForm() {
     if (!token) {
       navigate("/login");
     } else {
+      locationInput();
       fetchCountries();
     }
   }, [token, navigate]);
@@ -162,10 +123,10 @@ function CreateEventForm() {
               <div className="form-floating mb-4">
                 <div className="form-floating mb-3">
                   <input
-                    value={title}
-                    onChange={handleTitleChange}
+                    value={eventForm.event_title}
+                    onChange={handleChange}
                     placeholder="title"
-                    name="title"
+                    name="event_title"
                     required
                     type="string"
                     id="title"
@@ -175,34 +136,21 @@ function CreateEventForm() {
                 </div>
                 <div className="form-floating mb-3">
                   <input
-                    value={location}
-                    onChange={handleLocationChange}
-                    placeholder="city"
-                    name="city"
+                    value={eventForm.location}
+                    onChange={handleChange}
+                    placeholder="location"
+                    name="location"
                     required
                     type="string"
-                    id="city"
+                    id="location"
                     className="form-control"
                   />
-                  <label htmlFor="location">City</label>
-                </div>
-                <div className="form-floating mb-3">
-                  <input
-                    value={postalCode}
-                    onChange={handlePostalCodeChange}
-                    placeholder="postal code"
-                    name=""
-                    required
-                    type="string"
-                    id="postal code"
-                    className="form-control"
-                  />
-                  <label htmlFor="postal code">Postal Code</label>
+                  <label htmlFor="location">Location</label>
                 </div>
                 <div className="form-floating mb-3">
                   <select
-                    onChange={handleCountryChange}
-                    value={country}
+                    onChange={handleChange}
+                    value={eventForm.country}
                     required
                     name="country"
                     id="country"
@@ -244,8 +192,8 @@ function CreateEventForm() {
                 </div>
                 <div className="form-floating mb-3">
                   <input
-                    value={picture}
-                    onChange={handlePictureChange}
+                    value={eventForm.picture}
+                    onChange={handleChange}
                     placeholder="picture"
                     name="picture"
                     required
@@ -257,8 +205,8 @@ function CreateEventForm() {
                 </div>
                 <div>
                   <select
-                    onChange={handleCategoryChange}
-                    value={category}
+                    onChange={handleChange}
+                    value={eventForm.category}
                     required
                     name="category"
                     id="category"
@@ -276,8 +224,8 @@ function CreateEventForm() {
                 </div>
                 <div className="form-floating mb-3">
                   <input
-                    value={cost}
-                    onChange={handleCostChange}
+                    value={eventForm.cost}
+                    onChange={handleChange}
                     placeholder="cost"
                     name="cost"
                     required
@@ -289,8 +237,8 @@ function CreateEventForm() {
                 </div>
                 <div className="form-floating mb-3">
                   <input
-                    value={language}
-                    onChange={handleLanguageChange}
+                    value={eventForm.language}
+                    onChange={handleChange}
                     placeholder="language"
                     name="language"
                     required
@@ -302,10 +250,10 @@ function CreateEventForm() {
                 </div>
                 <div className="form-floating mb-3">
                   <input
-                    value={payment}
-                    onChange={handlePaymentChange}
+                    value={eventForm.payment_type}
+                    onChange={handleChange}
                     placeholder="payment"
-                    name="payment"
+                    name="payment_type"
                     required
                     type="string"
                     id="payment"
@@ -315,8 +263,8 @@ function CreateEventForm() {
                 </div>
                 <div className="form-floating mb-3">
                   <textarea
-                    value={description}
-                    onChange={handleDescriptionChange}
+                    value={eventForm.description}
+                    onChange={handleChange}
                     placeholder="description"
                     name="description"
                     required

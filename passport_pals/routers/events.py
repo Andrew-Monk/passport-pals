@@ -83,11 +83,25 @@ async def delete_event(
     event_id: str,
     repo: EventQueries = Depends(),
     account_data: dict = Depends(authenticator.try_get_current_account_data),
+    account_repo: AccountQueries = Depends(),
 ):
     if account_data is None or "id" not in account_data:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="User authentication required",
         )
+    props = account_repo.collection.find_one(
+        {"_id": ObjectId(account_data["id"])}
+    )
+    if event_id not in props["hosting"]:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="User authentication required",
+        )
+    props["hosting"].remove(event_id)
+    account_repo.collection.update_one(
+        {"_id": ObjectId(account_data["id"])},
+        {"$set": props},
+    )
     repo.delete_event(id=event_id)
     return True
